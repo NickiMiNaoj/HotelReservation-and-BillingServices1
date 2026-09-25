@@ -14,4 +14,8 @@ namespace UI
             Application.Run(new Form1());
         }
     }
+
+    internal class Form1 : Form
+    {
+    }
 }
