@@ -7,5 +7,5 @@ END
 IF NOT EXISTS (SELECT 1 FROM tblUsers WHERE Username = 'frontdesk')
 BEGIN
     INSERT INTO tblUsers (Username, Password, FullName, Role)
-    VALUES ('frontdesk', 'DeskPass123', 'Front Desk Staff', 'Front Desk');
+    VALUES ('frontdesk', 'DeskPass123', 'Front Desk Staff', 'Front Desk'); 
 END

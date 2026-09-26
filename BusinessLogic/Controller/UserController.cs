@@ -10,7 +10,7 @@ namespace BusinessLogic.Controller
         {
             _userRepository = new UserRepository();
         }
-
+         
         public User Login(string username, string password)
         {
             // Basic validation check before querying database

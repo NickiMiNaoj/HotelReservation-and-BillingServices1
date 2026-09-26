@@ -7,10 +7,8 @@ namespace BusinessLogic.Repository
 {
     internal class UserRepository
     {
-        // Change this string to match your database server details
         private readonly string _connectionString = "Server=localhost;Database=HotelDB;Trusted_Connection=True;";
 
-        // Method to validate login credentials via Stored Procedure
         public User AuthenticateUser(string username, string password)
         {
             User user = null;

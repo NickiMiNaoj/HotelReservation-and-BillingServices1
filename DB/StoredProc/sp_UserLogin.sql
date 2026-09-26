@@ -5,7 +5,7 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
-    SELECT UserID, Username, FullName, Role
-    FROM tblUsers
-    WHERE Username = @Username AND Password = @Password;
+    SELECT UserID, Username, FullName, Role 
+    FROM tblUsers 
+    WHERE Username = @Username AND Password = @Password; 
 END
