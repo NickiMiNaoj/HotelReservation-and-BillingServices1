@@ -15,6 +15,9 @@ namespace UI
             InitializeComponent();
         }
 
-        
+        private void frontdeskdashboardForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

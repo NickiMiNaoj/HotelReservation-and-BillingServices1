@@ -28,14 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnDashboard = new Button();
             btnRooms = new Button();
             btnReaervation = new Button();
             btnGuests = new Button();
             btnBullingPayment = new Button();
             btnCheckinCheckout = new Button();
             btnServicesAdd = new Button();
-            btnUserRoles = new Button();
             btnReports = new Button();
             btnLogout = new Button();
             btnSettings = new Button();
@@ -57,101 +55,92 @@
             btnAccount = new Button();
             SuspendLayout();
             // 
-            // btnDashboard
-            // 
-            btnDashboard.Location = new Point(32, 27);
-            btnDashboard.Name = "btnDashboard";
-            btnDashboard.Size = new Size(112, 34);
-            btnDashboard.TabIndex = 0;
-            btnDashboard.Text = "Dashboard";
-            btnDashboard.UseVisualStyleBackColor = true;
-            // 
             // btnRooms
             // 
-            btnRooms.Location = new Point(32, 84);
+            btnRooms.Location = new Point(26, 67);
+            btnRooms.Margin = new Padding(2, 2, 2, 2);
             btnRooms.Name = "btnRooms";
-            btnRooms.Size = new Size(112, 34);
+            btnRooms.Size = new Size(163, 27);
             btnRooms.TabIndex = 1;
             btnRooms.Text = "Rooms";
             btnRooms.UseVisualStyleBackColor = true;
             // 
             // btnReaervation
             // 
-            btnReaervation.Location = new Point(32, 137);
+            btnReaervation.Location = new Point(26, 110);
+            btnReaervation.Margin = new Padding(2, 2, 2, 2);
             btnReaervation.Name = "btnReaervation";
-            btnReaervation.Size = new Size(112, 34);
+            btnReaervation.Size = new Size(163, 27);
             btnReaervation.TabIndex = 2;
             btnReaervation.Text = "Reaervation";
             btnReaervation.UseVisualStyleBackColor = true;
             // 
             // btnGuests
             // 
-            btnGuests.Location = new Point(32, 199);
+            btnGuests.Location = new Point(26, 159);
+            btnGuests.Margin = new Padding(2, 2, 2, 2);
             btnGuests.Name = "btnGuests";
-            btnGuests.Size = new Size(112, 34);
+            btnGuests.Size = new Size(163, 27);
             btnGuests.TabIndex = 3;
             btnGuests.Text = "Guests";
             btnGuests.UseVisualStyleBackColor = true;
             // 
             // btnBullingPayment
             // 
-            btnBullingPayment.Location = new Point(32, 264);
+            btnBullingPayment.Location = new Point(26, 211);
+            btnBullingPayment.Margin = new Padding(2, 2, 2, 2);
             btnBullingPayment.Name = "btnBullingPayment";
-            btnBullingPayment.Size = new Size(162, 34);
+            btnBullingPayment.Size = new Size(163, 27);
             btnBullingPayment.TabIndex = 4;
             btnBullingPayment.Text = "Bulling /Payment";
             btnBullingPayment.UseVisualStyleBackColor = true;
             // 
             // btnCheckinCheckout
             // 
-            btnCheckinCheckout.Location = new Point(32, 328);
+            btnCheckinCheckout.Location = new Point(26, 262);
+            btnCheckinCheckout.Margin = new Padding(2, 2, 2, 2);
             btnCheckinCheckout.Name = "btnCheckinCheckout";
-            btnCheckinCheckout.Size = new Size(204, 34);
+            btnCheckinCheckout.Size = new Size(163, 27);
             btnCheckinCheckout.TabIndex = 5;
             btnCheckinCheckout.Text = "Check-in /Check-Out";
             btnCheckinCheckout.UseVisualStyleBackColor = true;
             // 
             // btnServicesAdd
             // 
-            btnServicesAdd.Location = new Point(32, 390);
+            btnServicesAdd.Location = new Point(26, 312);
+            btnServicesAdd.Margin = new Padding(2, 2, 2, 2);
             btnServicesAdd.Name = "btnServicesAdd";
-            btnServicesAdd.Size = new Size(204, 34);
+            btnServicesAdd.Size = new Size(163, 27);
             btnServicesAdd.TabIndex = 6;
             btnServicesAdd.Text = "Services (Add-ons )";
             btnServicesAdd.UseVisualStyleBackColor = true;
             // 
-            // btnUserRoles
-            // 
-            btnUserRoles.Location = new Point(32, 452);
-            btnUserRoles.Name = "btnUserRoles";
-            btnUserRoles.Size = new Size(112, 34);
-            btnUserRoles.TabIndex = 7;
-            btnUserRoles.Text = "User & Roles";
-            btnUserRoles.UseVisualStyleBackColor = true;
-            // 
             // btnReports
             // 
-            btnReports.Location = new Point(32, 511);
+            btnReports.Location = new Point(26, 358);
+            btnReports.Margin = new Padding(2, 2, 2, 2);
             btnReports.Name = "btnReports";
-            btnReports.Size = new Size(112, 34);
+            btnReports.Size = new Size(163, 27);
             btnReports.TabIndex = 8;
             btnReports.Text = "Reports";
             btnReports.UseVisualStyleBackColor = true;
             // 
             // btnLogout
             // 
-            btnLogout.Location = new Point(32, 636);
+            btnLogout.Location = new Point(26, 455);
+            btnLogout.Margin = new Padding(2, 2, 2, 2);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(112, 34);
+            btnLogout.Size = new Size(90, 27);
             btnLogout.TabIndex = 10;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = true;
             // 
             // btnSettings
             // 
-            btnSettings.Location = new Point(32, 572);
+            btnSettings.Location = new Point(26, 407);
+            btnSettings.Margin = new Padding(2, 2, 2, 2);
             btnSettings.Name = "btnSettings";
-            btnSettings.Size = new Size(112, 34);
+            btnSettings.Size = new Size(163, 27);
             btnSettings.TabIndex = 12;
             btnSettings.Text = "Settings";
             btnSettings.UseVisualStyleBackColor = true;
@@ -159,145 +148,161 @@
             // lblDashboard
             // 
             lblDashboard.AutoSize = true;
-            lblDashboard.Location = new Point(329, 32);
+            lblDashboard.Location = new Point(263, 26);
+            lblDashboard.Margin = new Padding(2, 0, 2, 0);
             lblDashboard.Name = "lblDashboard";
-            lblDashboard.Size = new Size(108, 25);
+            lblDashboard.Size = new Size(88, 20);
             lblDashboard.TabIndex = 13;
             lblDashboard.Text = "Dashboards";
             // 
             // listRecentTransactions
             // 
-            listRecentTransactions.Location = new Point(1381, 348);
+            listRecentTransactions.Location = new Point(1105, 278);
+            listRecentTransactions.Margin = new Padding(2, 2, 2, 2);
             listRecentTransactions.Name = "listRecentTransactions";
-            listRecentTransactions.Size = new Size(322, 235);
+            listRecentTransactions.Size = new Size(258, 189);
             listRecentTransactions.TabIndex = 14;
             listRecentTransactions.UseCompatibleStateImageBehavior = false;
             // 
             // listRoomAvaliablityOverview
             // 
-            listRoomAvaliablityOverview.Location = new Point(338, 348);
+            listRoomAvaliablityOverview.Location = new Point(270, 278);
+            listRoomAvaliablityOverview.Margin = new Padding(2, 2, 2, 2);
             listRoomAvaliablityOverview.Name = "listRoomAvaliablityOverview";
-            listRoomAvaliablityOverview.Size = new Size(322, 235);
+            listRoomAvaliablityOverview.Size = new Size(258, 189);
             listRoomAvaliablityOverview.TabIndex = 16;
             listRoomAvaliablityOverview.UseCompatibleStateImageBehavior = false;
             // 
             // listReservations
             // 
-            listReservations.Location = new Point(1288, 137);
+            listReservations.Location = new Point(1030, 110);
+            listReservations.Margin = new Padding(2, 2, 2, 2);
             listReservations.Name = "listReservations";
-            listReservations.Size = new Size(242, 146);
+            listReservations.Size = new Size(194, 118);
             listReservations.TabIndex = 17;
             listReservations.UseCompatibleStateImageBehavior = false;
             // 
             // listTotalRooms
             // 
-            listTotalRooms.Location = new Point(338, 137);
+            listTotalRooms.Location = new Point(270, 110);
+            listTotalRooms.Margin = new Padding(2, 2, 2, 2);
             listTotalRooms.Name = "listTotalRooms";
-            listTotalRooms.Size = new Size(242, 146);
+            listTotalRooms.Size = new Size(194, 118);
             listTotalRooms.TabIndex = 20;
             listTotalRooms.UseCompatibleStateImageBehavior = false;
             // 
             // lblTotalRooms
             // 
             lblTotalRooms.AutoSize = true;
-            lblTotalRooms.Location = new Point(337, 130);
+            lblTotalRooms.Location = new Point(270, 104);
+            lblTotalRooms.Margin = new Padding(2, 0, 2, 0);
             lblTotalRooms.Name = "lblTotalRooms";
-            lblTotalRooms.Size = new Size(110, 25);
+            lblTotalRooms.Size = new Size(92, 20);
             lblTotalRooms.TabIndex = 27;
             lblTotalRooms.Text = "Total Rooms";
             // 
             // listOccupiedRooms
             // 
-            listOccupiedRooms.Location = new Point(974, 137);
+            listOccupiedRooms.Location = new Point(779, 110);
+            listOccupiedRooms.Margin = new Padding(2, 2, 2, 2);
             listOccupiedRooms.Name = "listOccupiedRooms";
-            listOccupiedRooms.Size = new Size(242, 146);
+            listOccupiedRooms.Size = new Size(194, 118);
             listOccupiedRooms.TabIndex = 28;
             listOccupiedRooms.UseCompatibleStateImageBehavior = false;
             // 
             // lblOccupiedRooms
             // 
             lblOccupiedRooms.AutoSize = true;
-            lblOccupiedRooms.Location = new Point(974, 130);
+            lblOccupiedRooms.Location = new Point(779, 104);
+            lblOccupiedRooms.Margin = new Padding(2, 0, 2, 0);
             lblOccupiedRooms.Name = "lblOccupiedRooms";
-            lblOccupiedRooms.Size = new Size(148, 25);
+            lblOccupiedRooms.Size = new Size(122, 20);
             lblOccupiedRooms.TabIndex = 30;
             lblOccupiedRooms.Text = "Occupied Rooms";
             // 
             // lblRoomAvaliablityOverview
             // 
             lblRoomAvaliablityOverview.AutoSize = true;
-            lblRoomAvaliablityOverview.Location = new Point(338, 337);
+            lblRoomAvaliablityOverview.Location = new Point(270, 270);
+            lblRoomAvaliablityOverview.Margin = new Padding(2, 0, 2, 0);
             lblRoomAvaliablityOverview.Name = "lblRoomAvaliablityOverview";
-            lblRoomAvaliablityOverview.Size = new Size(224, 25);
+            lblRoomAvaliablityOverview.Size = new Size(188, 20);
             lblRoomAvaliablityOverview.TabIndex = 31;
             lblRoomAvaliablityOverview.Text = "Room Avaliablity Overview";
             // 
             // lblRecentTransactions
             // 
             lblRecentTransactions.AutoSize = true;
-            lblRecentTransactions.Location = new Point(1381, 337);
+            lblRecentTransactions.Location = new Point(1105, 270);
+            lblRecentTransactions.Margin = new Padding(2, 0, 2, 0);
             lblRecentTransactions.Name = "lblRecentTransactions";
-            lblRecentTransactions.Size = new Size(165, 25);
+            lblRecentTransactions.Size = new Size(139, 20);
             lblRecentTransactions.TabIndex = 33;
             lblRecentTransactions.Text = "Recent Transactions";
             // 
             // lblReservations
             // 
             lblReservations.AutoSize = true;
-            lblReservations.Location = new Point(1288, 125);
+            lblReservations.Location = new Point(1030, 100);
+            lblReservations.Margin = new Padding(2, 0, 2, 0);
             lblReservations.Name = "lblReservations";
-            lblReservations.Size = new Size(111, 25);
+            lblReservations.Size = new Size(92, 20);
             lblReservations.TabIndex = 34;
             lblReservations.Text = "Reservations";
             // 
             // listAvailableRooms
             // 
-            listAvailableRooms.Location = new Point(652, 137);
+            listAvailableRooms.Location = new Point(522, 110);
+            listAvailableRooms.Margin = new Padding(2, 2, 2, 2);
             listAvailableRooms.Name = "listAvailableRooms";
-            listAvailableRooms.Size = new Size(242, 146);
+            listAvailableRooms.Size = new Size(194, 118);
             listAvailableRooms.TabIndex = 35;
             listAvailableRooms.UseCompatibleStateImageBehavior = false;
             // 
             // lblAvailableRooms
             // 
             lblAvailableRooms.AutoSize = true;
-            lblAvailableRooms.Location = new Point(652, 130);
+            lblAvailableRooms.Location = new Point(522, 104);
+            lblAvailableRooms.Margin = new Padding(2, 0, 2, 0);
             lblAvailableRooms.Name = "lblAvailableRooms";
-            lblAvailableRooms.Size = new Size(144, 25);
+            lblAvailableRooms.Size = new Size(121, 20);
             lblAvailableRooms.TabIndex = 36;
             lblAvailableRooms.Text = "Available Rooms";
             // 
             // listTodayArrivals
             // 
-            listTodayArrivals.Location = new Point(701, 348);
+            listTodayArrivals.Location = new Point(561, 278);
+            listTodayArrivals.Margin = new Padding(2, 2, 2, 2);
             listTodayArrivals.Name = "listTodayArrivals";
-            listTodayArrivals.Size = new Size(632, 235);
+            listTodayArrivals.Size = new Size(506, 189);
             listTodayArrivals.TabIndex = 37;
             listTodayArrivals.UseCompatibleStateImageBehavior = false;
             // 
             // lblTodayArrivals
             // 
             lblTodayArrivals.AutoSize = true;
-            lblTodayArrivals.Location = new Point(701, 337);
+            lblTodayArrivals.Location = new Point(561, 270);
+            lblTodayArrivals.Margin = new Padding(2, 0, 2, 0);
             lblTodayArrivals.Name = "lblTodayArrivals";
-            lblTodayArrivals.Size = new Size(122, 25);
+            lblTodayArrivals.Size = new Size(102, 20);
             lblTodayArrivals.TabIndex = 38;
             lblTodayArrivals.Text = "Today Arrivals";
             // 
             // btnAccount
             // 
-            btnAccount.Location = new Point(1737, 27);
+            btnAccount.Location = new Point(1273, 19);
+            btnAccount.Margin = new Padding(2, 2, 2, 2);
             btnAccount.Name = "btnAccount";
-            btnAccount.Size = new Size(112, 34);
+            btnAccount.Size = new Size(90, 27);
             btnAccount.TabIndex = 39;
             btnAccount.Text = "Account";
             btnAccount.UseVisualStyleBackColor = true;
             // 
             // admindashboardform
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1924, 846);
+            ClientSize = new Size(1539, 677);
             Controls.Add(btnAccount);
             Controls.Add(lblTodayArrivals);
             Controls.Add(listTodayArrivals);
@@ -317,14 +322,13 @@
             Controls.Add(btnSettings);
             Controls.Add(btnLogout);
             Controls.Add(btnReports);
-            Controls.Add(btnUserRoles);
             Controls.Add(btnServicesAdd);
             Controls.Add(btnCheckinCheckout);
             Controls.Add(btnBullingPayment);
             Controls.Add(btnGuests);
             Controls.Add(btnReaervation);
             Controls.Add(btnRooms);
-            Controls.Add(btnDashboard);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "admindashboardform";
             Text = "admindashboardform";
             ResumeLayout(false);
@@ -332,15 +336,12 @@
         }
 
         #endregion
-
-        private Button btnDashboard;
         private Button btnRooms;
         private Button btnReaervation;
         private Button btnGuests;
         private Button btnBullingPayment;
         private Button btnCheckinCheckout;
         private Button btnServicesAdd;
-        private Button btnUserRoles;
         private Button btnReports;
         private Button button10;
         private Button btnLogout;
