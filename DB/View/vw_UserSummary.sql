@@ -1,5 +1,5 @@
 ﻿CREATE VIEW vw_UserSummary AS
-SELECT 
+SELECT
     UserID,
     Username,
     FullName,

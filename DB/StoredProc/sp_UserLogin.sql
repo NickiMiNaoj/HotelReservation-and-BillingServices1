@@ -1,5 +1,4 @@
-﻿-- Stored Procedure for User Authentication
-CREATE PROCEDURE sp_UserLogin
+﻿CREATE PROCEDURE sp_UserLogin
     @Username NVARCHAR(50),
     @Password NVARCHAR(250)
 AS

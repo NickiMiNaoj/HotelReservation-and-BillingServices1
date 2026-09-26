@@ -21,7 +21,6 @@ namespace BusinessLogic.Repository
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    // Pass parameters to the Stored Procedure
                     cmd.Parameters.AddWithValue("@Username", username);
                     cmd.Parameters.AddWithValue("@Password", password);
 
@@ -29,7 +28,6 @@ namespace BusinessLogic.Repository
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        // If a row is returned, credentials are valid
                         if (reader.Read())
                         {
                             user = new User
@@ -44,7 +42,7 @@ namespace BusinessLogic.Repository
                 }
             }
 
-            return user; // Returns user if found, or null if login failed
+            return user; 
         }
     }
 }

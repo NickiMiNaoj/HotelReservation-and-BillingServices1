@@ -1,5 +1,4 @@
-﻿-- Seed Default Accounts
-IF NOT EXISTS (SELECT 1 FROM tblUsers WHERE Username = 'admin')
+﻿IF NOT EXISTS (SELECT 1 FROM tblUsers WHERE Username = 'admin')
 BEGIN
     INSERT INTO tblUsers (Username, Password, FullName, Role)
     VALUES ('admin', 'AdminPass123', 'System Administrator', 'Admin');
