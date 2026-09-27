@@ -59,5 +59,14 @@
     <Folder Include="View" />
     <Folder Include="Table" />
     <Folder Include="Script" />
+    <Folder Include="StoredProc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="View\vw_UserSummary.sql" />
+    <None Include="StoredProc\sp_UserLogin.sql" />
+    <None Include="Script\SeedUsers.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Table\tblUsers.sql" />
   </ItemGroup>
 </Project>
