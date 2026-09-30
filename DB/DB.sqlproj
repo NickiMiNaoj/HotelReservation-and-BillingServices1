@@ -65,8 +65,12 @@
     <None Include="View\vw_UserSummary.sql" />
     <None Include="StoredProc\sp_UserLogin.sql" />
     <None Include="Script\SeedUsers.sql" />
+    <None Include="Script\SeedRooms.sql" />
+    <None Include="StoredProc\sp_RoomOperations.sql" />
+    <None Include="View\vw_AvailableRooms.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Table\tblUsers.sql" />
+    <Build Include="Table\tblRooms.sql" />
   </ItemGroup>
 </Project>
