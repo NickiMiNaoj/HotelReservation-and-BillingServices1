@@ -68,9 +68,15 @@
     <None Include="Script\SeedRooms.sql" />
     <None Include="StoredProc\sp_RoomOperations.sql" />
     <None Include="View\vw_AvailableRooms.sql" />
+    <None Include="Script\SeedGuests.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Table\tblUsers.sql" />
     <Build Include="Table\tblRooms.sql" />
+    <Build Include="Table\tblGuests.sql" />
+    <Build Include="StoredProc\sp_GuestOperations.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="DB.refactorlog" />
   </ItemGroup>
 </Project>
