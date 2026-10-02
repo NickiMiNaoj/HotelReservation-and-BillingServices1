@@ -1,7 +1,10 @@
-﻿namespace UI
+﻿using Microsoft.Data.SqlClient;
+
+namespace UI
 {
     public partial class LogIn : Form
     {
+        private string connectionString = @"Server=MIZUTO\SQLEXPRESS;Database=DB;Trusted_Connection=True;TrustServerCertificate=True;";
         public LogIn()
         {
             InitializeComponent();
@@ -18,22 +21,53 @@
                 return;
             }
 
-            if (username == "admin" && password == "password123")
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                admindashboardform adminForm = new admindashboardform();
-                adminForm.Show();
-                this.Hide();
+                try
+                {
+                    conn.Open();
+
+                    using (SqlCommand cmd = new SqlCommand("sp_UserLogin", conn))
+                    {
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@Username", username);
+                        cmd.Parameters.AddWithValue("@Password", password);
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                string fullName = reader["FullName"].ToString();
+                                string role = reader["Role"].ToString();
+
+                                MessageBox.Show($"Login successful! Welcome, {fullName}.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                if (role == "Admin")
+                                {
+                                    admindashboardform adminForm = new admindashboardform();
+                                    adminForm.Show();
+                                    this.Hide();
+                                }
+                                else if (role == "Front Desk")
+                                {
+                                    frontdeskdashboardForm frontDeskForm = new frontdeskdashboardForm();
+                                    frontDeskForm.Show();
+                                    this.Hide();
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Database connection error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else if (username == "frontdesk" && password == "password123")
-            {
-                frontdeskdashboardForm frontDeskForm = new frontdeskdashboardForm();
-                frontDeskForm.Show();
-                this.Hide();
-            }
-            else
-            {
-                lblerror.Text = "Invalid username or password.";
-            }
+
         }
     }
 }
