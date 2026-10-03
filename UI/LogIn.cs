@@ -4,7 +4,7 @@ namespace UI
 {
     public partial class LogIn : Form
     {
-        private string connectionString = @"Server=MIZUTO\SQLEXPRESS;Database=DB;Trusted_Connection=True;TrustServerCertificate=True;";
+        private string connectionString = @"Server=LAPTOP-4TR6CTSS\SQLEXPRESS09;Database=DB;Trusted_Connection=True;TrustServerCertificate=True;";
         public LogIn()
         {
             InitializeComponent();

@@ -1,8 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using BusinessLogic.Controller;
+﻿using BusinessLogic.Controller;
+using Microsoft.Data.SqlClient;
 using Model;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Windows.Forms;
 
 namespace UI
 {
@@ -13,6 +15,7 @@ namespace UI
         {
             InitializeComponent();
             _guestController = new GuestController();
+            this.Load += guest_maintenanceform_Load;
         }
 
         private void guest_maintenanceform_Load(object sender, EventArgs e)
@@ -23,35 +26,21 @@ namespace UI
         private void SetupComboBoxes()
         {
             cmbRoomType.Items.Clear();
-            cmbRoomType.Items.AddRange(new string[] { "Single", "Double", "Deluxe", "Suite" });
+            cmbRoomType.Items.AddRange(new string[] { "Single", "Double", "Deluxe", "Suite", "Executive Suite" });
             cmbRoomType.SelectedIndex = 0;
 
             cmbStatus.Items.Clear();
-            cmbStatus.Items.AddRange(new string[] { "Active", "Inactive" });
+            cmbStatus.Items.AddRange(new string[] { "Active", "Inactive", "Checked In", "Checked Out", "Reserved" });
             cmbStatus.SelectedIndex = 0;
         }
         private void LoadGuestData()
         {
             List<GuestModel> guests = _guestController.GetGuests();
+
+            dgvGuests.AutoGenerateColumns = true;
             dgvGuests.DataSource = null;
             dgvGuests.DataSource = guests;
-
-            if (dgvGuests.Columns["GuestID"] != null)
-                dgvGuests.Columns["GuestID"].HeaderText = "Guest ID";
-        }
-
-        private void dgvGuests_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && dgvGuests.Rows[e.RowIndex].DataBoundItem is GuestModel guest)
-            {
-                txtGuestID.Text = guest.GuestID.ToString();
-                txtFirstName.Text = guest.FirstName;
-                txtLastName.Text = guest.LastName;
-                txtEmail.Text = guest.Email;
-                txtPhone.Text = guest.Phone;
-                cmbRoomType.SelectedItem = guest.RoomType;
-                cmbStatus.SelectedItem = guest.Status;
-            }
+            dgvGuests.Refresh();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -152,8 +141,8 @@ namespace UI
             txtLastName.Clear();
             txtEmail.Clear();
             txtPhone.Clear();
-            cmbRoomType.SelectedIndex = 0;
-            cmbStatus.SelectedIndex = 0;
+            if (cmbRoomType.Items.Count > 0) cmbRoomType.SelectedIndex = 0;
+            if (cmbStatus.Items.Count > 0) cmbStatus.SelectedIndex = 0;
             dgvGuests.ClearSelection();
         }
         private bool ValidateInputs()
@@ -164,6 +153,42 @@ namespace UI
                 return false;
             }
             return true;
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            PerformSearch();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            PerformSearch();
+        }
+        private void PerformSearch()
+        {
+            string keyword = txtSearch.Text;
+
+            List<GuestModel> searchResults = _guestController.SearchGuests(keyword);
+
+            dgvGuests.DataSource = null;
+            dgvGuests.DataSource = searchResults;
+
+            if (dgvGuests.Columns["GuestID"] != null)
+                dgvGuests.Columns["GuestID"].HeaderText = "Guest ID";
+        }
+
+        private void dgvGuests_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvGuests.Rows[e.RowIndex].DataBoundItem is GuestModel guest)
+            {
+                txtGuestID.Text = guest.GuestID.ToString();
+                txtFirstName.Text = guest.FirstName;
+                txtLastName.Text = guest.LastName;
+                txtEmail.Text = guest.Email;
+                txtPhone.Text = guest.Phone;
+                cmbRoomType.SelectedItem = guest.RoomType;
+                cmbStatus.SelectedItem = guest.Status;
+            }
         }
     }
 }

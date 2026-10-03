@@ -8,7 +8,7 @@ namespace BusinessLogic.Repository
 {
     public class RoomRepository
     {
-        private readonly string _connectionString = "Server=localhost;Database=HotelDB;Trusted_Connection=True;";
+        private readonly string _connectionString = "Server=LAPTOP-4TR6CTSS\\SQLEXPRESS09;Database=HotelDB;Trusted_Connection=True;";
 
         // 1. CREATE: Add a new room
         public bool AddRoom(RoomModel room)

@@ -7,7 +7,7 @@ namespace BusinessLogic.Repository
 {
     public class UserRepository
     {
-        private readonly string _connectionString = @"Server=MIZUTO\SQLEXPRESS;Database=DB;Trusted_Connection=True;TrustServerCertificate=True;";
+        private readonly string _connectionString = @"Server=LAPTOP-4TR6CTSS\SQLEXPRESS09;Database=DB;Trusted_Connection=True;TrustServerCertificate=True;";
 
         public UserModel AuthenticateUser(string username, string password)
         {

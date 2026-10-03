@@ -32,7 +32,7 @@
             lblGuestMaintenance = new Label();
             bindingSource1 = new BindingSource(components);
             btnSearch = new Button();
-            txbSearch = new TextBox();
+            txtSearch = new TextBox();
             dgvGuests = new DataGridView();
             lblGuestID = new Label();
             lblFirstName = new Label();
@@ -59,160 +59,172 @@
             // lblGuestMaintenance
             // 
             lblGuestMaintenance.AutoSize = true;
-            lblGuestMaintenance.Location = new Point(17, 7);
+            lblGuestMaintenance.Location = new Point(19, 9);
             lblGuestMaintenance.Margin = new Padding(2, 0, 2, 0);
             lblGuestMaintenance.Name = "lblGuestMaintenance";
-            lblGuestMaintenance.Size = new Size(109, 15);
+            lblGuestMaintenance.Size = new Size(135, 20);
             lblGuestMaintenance.TabIndex = 16;
             lblGuestMaintenance.Text = "Guest Maintenance";
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(883, 7);
-            btnSearch.Margin = new Padding(2);
+            btnSearch.Location = new Point(1009, 9);
+            btnSearch.Margin = new Padding(2, 3, 2, 3);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(100, 23);
+            btnSearch.Size = new Size(114, 31);
             btnSearch.TabIndex = 23;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
-            // txbSearch
+            // txtSearch
             // 
-            txbSearch.Location = new Point(724, 7);
-            txbSearch.Margin = new Padding(2);
-            txbSearch.Name = "txbSearch";
-            txbSearch.Size = new Size(155, 23);
-            txbSearch.TabIndex = 25;
+            txtSearch.Location = new Point(827, 9);
+            txtSearch.Margin = new Padding(2, 3, 2, 3);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(177, 27);
+            txtSearch.TabIndex = 25;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // dgvGuests
             // 
             dgvGuests.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvGuests.Location = new Point(235, 117);
+            dgvGuests.Location = new Point(269, 156);
+            dgvGuests.Margin = new Padding(3, 4, 3, 4);
             dgvGuests.Name = "dgvGuests";
-            dgvGuests.Size = new Size(748, 323);
+            dgvGuests.RowHeadersWidth = 51;
+            dgvGuests.Size = new Size(855, 431);
             dgvGuests.TabIndex = 26;
             dgvGuests.CellClick += dgvGuests_CellClick;
             // 
             // lblGuestID
             // 
             lblGuestID.AutoSize = true;
-            lblGuestID.Location = new Point(17, 42);
+            lblGuestID.Location = new Point(19, 56);
             lblGuestID.Name = "lblGuestID";
-            lblGuestID.Size = new Size(51, 15);
+            lblGuestID.Size = new Size(65, 20);
             lblGuestID.TabIndex = 27;
             lblGuestID.Text = "Guest ID";
             // 
             // lblFirstName
             // 
             lblFirstName.AutoSize = true;
-            lblFirstName.Location = new Point(17, 86);
+            lblFirstName.Location = new Point(19, 115);
             lblFirstName.Name = "lblFirstName";
-            lblFirstName.Size = new Size(64, 15);
+            lblFirstName.Size = new Size(80, 20);
             lblFirstName.TabIndex = 28;
             lblFirstName.Text = "First Name";
             // 
             // txtGuestID
             // 
-            txtGuestID.Location = new Point(17, 60);
+            txtGuestID.Location = new Point(19, 80);
+            txtGuestID.Margin = new Padding(3, 4, 3, 4);
             txtGuestID.Name = "txtGuestID";
             txtGuestID.ReadOnly = true;
-            txtGuestID.Size = new Size(203, 23);
+            txtGuestID.Size = new Size(231, 27);
             txtGuestID.TabIndex = 29;
             // 
             // txtFirstName
             // 
-            txtFirstName.Location = new Point(17, 104);
+            txtFirstName.Location = new Point(19, 139);
+            txtFirstName.Margin = new Padding(3, 4, 3, 4);
             txtFirstName.Name = "txtFirstName";
-            txtFirstName.Size = new Size(203, 23);
+            txtFirstName.Size = new Size(231, 27);
             txtFirstName.TabIndex = 30;
             // 
             // lblLastName
             // 
             lblLastName.AutoSize = true;
-            lblLastName.Location = new Point(17, 130);
+            lblLastName.Location = new Point(19, 173);
             lblLastName.Name = "lblLastName";
-            lblLastName.Size = new Size(63, 15);
+            lblLastName.Size = new Size(79, 20);
             lblLastName.TabIndex = 31;
             lblLastName.Text = "Last Name";
             // 
             // txtLastName
             // 
-            txtLastName.Location = new Point(17, 148);
+            txtLastName.Location = new Point(19, 197);
+            txtLastName.Margin = new Padding(3, 4, 3, 4);
             txtLastName.Name = "txtLastName";
-            txtLastName.Size = new Size(203, 23);
+            txtLastName.Size = new Size(231, 27);
             txtLastName.TabIndex = 32;
             // 
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(17, 174);
+            lblEmail.Location = new Point(19, 232);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(36, 15);
+            lblEmail.Size = new Size(46, 20);
             lblEmail.TabIndex = 33;
             lblEmail.Text = "Email";
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(17, 192);
+            txtEmail.Location = new Point(19, 256);
+            txtEmail.Margin = new Padding(3, 4, 3, 4);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(203, 23);
+            txtEmail.Size = new Size(231, 27);
             txtEmail.TabIndex = 34;
             // 
             // lblPhone
             // 
             lblPhone.AutoSize = true;
-            lblPhone.Location = new Point(17, 218);
+            lblPhone.Location = new Point(19, 291);
             lblPhone.Name = "lblPhone";
-            lblPhone.Size = new Size(96, 15);
+            lblPhone.Size = new Size(118, 20);
             lblPhone.TabIndex = 35;
             lblPhone.Text = "Contact Number";
             // 
             // txtPhone
             // 
-            txtPhone.Location = new Point(17, 236);
+            txtPhone.Location = new Point(19, 315);
+            txtPhone.Margin = new Padding(3, 4, 3, 4);
             txtPhone.Name = "txtPhone";
-            txtPhone.Size = new Size(203, 23);
+            txtPhone.Size = new Size(231, 27);
             txtPhone.TabIndex = 36;
             // 
             // lblRoomType
             // 
             lblRoomType.AutoSize = true;
-            lblRoomType.Location = new Point(17, 262);
+            lblRoomType.Location = new Point(19, 349);
             lblRoomType.Name = "lblRoomType";
-            lblRoomType.Size = new Size(67, 15);
+            lblRoomType.Size = new Size(84, 20);
             lblRoomType.TabIndex = 37;
             lblRoomType.Text = "Room Type";
             // 
             // cmbRoomType
             // 
             cmbRoomType.FormattingEnabled = true;
-            cmbRoomType.Location = new Point(17, 280);
+            cmbRoomType.Location = new Point(19, 373);
+            cmbRoomType.Margin = new Padding(3, 4, 3, 4);
             cmbRoomType.Name = "cmbRoomType";
-            cmbRoomType.Size = new Size(203, 23);
+            cmbRoomType.Size = new Size(231, 28);
             cmbRoomType.TabIndex = 38;
             // 
             // lblStatus
             // 
             lblStatus.AutoSize = true;
-            lblStatus.Location = new Point(17, 306);
+            lblStatus.Location = new Point(19, 408);
             lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(39, 15);
+            lblStatus.Size = new Size(49, 20);
             lblStatus.TabIndex = 39;
             lblStatus.Text = "Status";
             // 
             // cmbStatus
             // 
             cmbStatus.FormattingEnabled = true;
-            cmbStatus.Location = new Point(17, 324);
+            cmbStatus.Location = new Point(19, 432);
+            cmbStatus.Margin = new Padding(3, 4, 3, 4);
             cmbStatus.Name = "cmbStatus";
-            cmbStatus.Size = new Size(203, 23);
+            cmbStatus.Size = new Size(231, 28);
             cmbStatus.TabIndex = 40;
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(260, 81);
+            btnAdd.Location = new Point(297, 108);
+            btnAdd.Margin = new Padding(3, 4, 3, 4);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(75, 23);
+            btnAdd.Size = new Size(86, 31);
             btnAdd.TabIndex = 41;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = true;
@@ -220,9 +232,10 @@
             // 
             // btnUpdate
             // 
-            btnUpdate.Location = new Point(341, 82);
+            btnUpdate.Location = new Point(390, 109);
+            btnUpdate.Margin = new Padding(3, 4, 3, 4);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(75, 23);
+            btnUpdate.Size = new Size(86, 31);
             btnUpdate.TabIndex = 42;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = true;
@@ -230,9 +243,10 @@
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(422, 82);
+            btnDelete.Location = new Point(482, 109);
+            btnDelete.Margin = new Padding(3, 4, 3, 4);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(75, 23);
+            btnDelete.Size = new Size(86, 31);
             btnDelete.TabIndex = 43;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
@@ -240,9 +254,10 @@
             // 
             // btnClear
             // 
-            btnClear.Location = new Point(503, 82);
+            btnClear.Location = new Point(575, 109);
+            btnClear.Margin = new Padding(3, 4, 3, 4);
             btnClear.Name = "btnClear";
-            btnClear.Size = new Size(75, 23);
+            btnClear.Size = new Size(86, 31);
             btnClear.TabIndex = 44;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = true;
@@ -250,9 +265,9 @@
             // 
             // guest_maintenanceform
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1011, 452);
+            ClientSize = new Size(1155, 603);
             Controls.Add(btnClear);
             Controls.Add(btnDelete);
             Controls.Add(btnUpdate);
@@ -272,10 +287,10 @@
             Controls.Add(lblFirstName);
             Controls.Add(lblGuestID);
             Controls.Add(dgvGuests);
-            Controls.Add(txbSearch);
+            Controls.Add(txtSearch);
             Controls.Add(btnSearch);
             Controls.Add(lblGuestMaintenance);
-            Margin = new Padding(2);
+            Margin = new Padding(2, 3, 2, 3);
             Name = "guest_maintenanceform";
             Text = "guest_maintenanceform";
             Load += guest_maintenanceform_Load;
@@ -295,7 +310,7 @@
         private BindingSource bindingSource1;
         private TextBox txtGuestID;
         private Button btnSearch;
-        private TextBox txbSearch;
+        private TextBox txtSearch;
         private DataGridView dgvGuests;
         private Label lblGuestID;
         private Label lblFirstName;
