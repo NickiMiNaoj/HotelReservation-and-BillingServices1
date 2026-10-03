@@ -1,4 +1,7 @@
-﻿INSERT INTO tblGuests (FirstName, LastName, Email, Phone, RoomType, Status) VALUES
+﻿USE DB;
+GO
+
+INSERT INTO dbo.tblGuests (FirstName, LastName, Email, Phone, RoomType, Status) VALUES 
 ('Pablo', 'Nase', 'pablo.nase@email.com', '09171110001', 'Executive Suite', 'Checked In'),
 ('Stell', 'Ajero', 'stell.ajero@email.com', '09171110002', 'Deluxe', 'Active'),
 ('Ken', 'Suson', 'ken.suson@email.com', '09171110003', 'Suite', 'Reserved'),
@@ -46,3 +49,4 @@
 ('Changbin', 'Seo', 'changbin.seo@email.com', '09177770003', 'Suite', 'Reserved'),
 ('Hyunjin', 'Hwang', 'hyunjin.hwang@email.com', '09177770004', 'Double', 'Checked In'),
 ('Han', 'Jisung', 'han.jisung@email.com', '09177770005', 'Single', 'Active');
+GO
