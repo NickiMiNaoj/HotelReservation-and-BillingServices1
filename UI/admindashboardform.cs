@@ -15,6 +15,10 @@ namespace UI
             InitializeComponent();
         }
 
-        
+        private void btnGuestMaintenance_Click(object sender, EventArgs e)
+        {
+            guest_maintenanceform guestForm = new guest_maintenanceform();
+            guestForm.Show();
+        }
     }
 }

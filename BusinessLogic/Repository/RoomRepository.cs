@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
+using Model;
 
 namespace BusinessLogic.Repository
 {
@@ -10,7 +11,7 @@ namespace BusinessLogic.Repository
         private readonly string _connectionString = "Server=localhost;Database=HotelDB;Trusted_Connection=True;";
 
         // 1. CREATE: Add a new room
-        public bool AddRoom(Room room)
+        public bool AddRoom(RoomModel room)
         {
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
@@ -33,9 +34,9 @@ namespace BusinessLogic.Repository
         }
 
         // 2. READ: Get all rooms
-        public List<Room> GetAllRooms()
+        public List<RoomModel> GetAllRooms()
         {
-            List<Room> roomList = new List<Room>();
+            List<RoomModel> roomList = new List<RoomModel>();
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
@@ -48,7 +49,7 @@ namespace BusinessLogic.Repository
                     {
                         while (reader.Read())
                         {
-                            Room room = new Room
+                            RoomModel room = new RoomModel
                             {
                                 RoomID = Convert.ToInt32(reader["RoomID"]),
                                 RoomNumber = reader["RoomNumber"].ToString(),
@@ -69,7 +70,7 @@ namespace BusinessLogic.Repository
         }
 
         // 3. UPDATE: Update an existing room
-        public bool UpdateRoom(Room room)
+        public bool UpdateRoom(RoomModel room)
         {
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {

@@ -29,190 +29,289 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            listViewGuestID = new ListView();
-            listViewFirstName = new ListView();
-            listViewLastName = new ListView();
-            listViewContactNumber = new ListView();
-            listViewEmail = new ListView();
             lblGuestMaintenance = new Label();
-            lblGuestID = new Label();
-            lblLastName = new Label();
-            lblFirstName = new Label();
-            lblEmail = new Label();
-            lblContactNumber = new Label();
             bindingSource1 = new BindingSource(components);
             btnSearch = new Button();
-            btnAddNewGuest = new Button();
             txbSearch = new TextBox();
+            dgvGuests = new DataGridView();
+            lblGuestID = new Label();
+            lblFirstName = new Label();
+            txtGuestID = new TextBox();
+            txtFirstName = new TextBox();
+            lblLastName = new Label();
+            txtLastName = new TextBox();
+            lblEmail = new Label();
+            txtEmail = new TextBox();
+            lblPhone = new Label();
+            txtPhone = new TextBox();
+            lblRoomType = new Label();
+            cmbRoomType = new ComboBox();
+            lblStatus = new Label();
+            cmbStatus = new ComboBox();
+            btnAdd = new Button();
+            btnUpdate = new Button();
+            btnDelete = new Button();
+            btnClear = new Button();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvGuests).BeginInit();
             SuspendLayout();
-            // 
-            // listViewGuestID
-            // 
-            listViewGuestID.Location = new Point(194, 96);
-            listViewGuestID.Name = "listViewGuestID";
-            listViewGuestID.Size = new Size(182, 353);
-            listViewGuestID.TabIndex = 3;
-            listViewGuestID.UseCompatibleStateImageBehavior = false;
-            // 
-            // listViewFirstName
-            // 
-            listViewFirstName.Location = new Point(449, 96);
-            listViewFirstName.Name = "listViewFirstName";
-            listViewFirstName.Size = new Size(182, 353);
-            listViewFirstName.TabIndex = 4;
-            listViewFirstName.UseCompatibleStateImageBehavior = false;
-            // 
-            // listViewLastName
-            // 
-            listViewLastName.Location = new Point(700, 96);
-            listViewLastName.Name = "listViewLastName";
-            listViewLastName.Size = new Size(182, 353);
-            listViewLastName.TabIndex = 6;
-            listViewLastName.UseCompatibleStateImageBehavior = false;
-            // 
-            // listViewContactNumber
-            // 
-            listViewContactNumber.Location = new Point(946, 96);
-            listViewContactNumber.Name = "listViewContactNumber";
-            listViewContactNumber.Size = new Size(182, 353);
-            listViewContactNumber.TabIndex = 7;
-            listViewContactNumber.UseCompatibleStateImageBehavior = false;
-            // 
-            // listViewEmail
-            // 
-            listViewEmail.Location = new Point(1192, 96);
-            listViewEmail.Name = "listViewEmail";
-            listViewEmail.Size = new Size(182, 353);
-            listViewEmail.TabIndex = 9;
-            listViewEmail.UseCompatibleStateImageBehavior = false;
             // 
             // lblGuestMaintenance
             // 
             lblGuestMaintenance.AutoSize = true;
-            lblGuestMaintenance.Location = new Point(24, 12);
+            lblGuestMaintenance.Location = new Point(17, 7);
+            lblGuestMaintenance.Margin = new Padding(2, 0, 2, 0);
             lblGuestMaintenance.Name = "lblGuestMaintenance";
-            lblGuestMaintenance.Size = new Size(162, 25);
+            lblGuestMaintenance.Size = new Size(109, 15);
             lblGuestMaintenance.TabIndex = 16;
             lblGuestMaintenance.Text = "Guest Maintenance";
+            // 
+            // btnSearch
+            // 
+            btnSearch.Location = new Point(883, 7);
+            btnSearch.Margin = new Padding(2);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(100, 23);
+            btnSearch.TabIndex = 23;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = true;
+            // 
+            // txbSearch
+            // 
+            txbSearch.Location = new Point(724, 7);
+            txbSearch.Margin = new Padding(2);
+            txbSearch.Name = "txbSearch";
+            txbSearch.Size = new Size(155, 23);
+            txbSearch.TabIndex = 25;
+            // 
+            // dgvGuests
+            // 
+            dgvGuests.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvGuests.Location = new Point(235, 117);
+            dgvGuests.Name = "dgvGuests";
+            dgvGuests.Size = new Size(748, 323);
+            dgvGuests.TabIndex = 26;
+            dgvGuests.CellClick += dgvGuests_CellClick;
             // 
             // lblGuestID
             // 
             lblGuestID.AutoSize = true;
-            lblGuestID.Location = new Point(236, 55);
+            lblGuestID.Location = new Point(17, 42);
             lblGuestID.Name = "lblGuestID";
-            lblGuestID.Size = new Size(82, 25);
-            lblGuestID.TabIndex = 17;
-            lblGuestID.Text = "Guest_ID";
-            // 
-            // lblLastName
-            // 
-            lblLastName.AutoSize = true;
-            lblLastName.Location = new Point(743, 55);
-            lblLastName.Name = "lblLastName";
-            lblLastName.Size = new Size(95, 25);
-            lblLastName.TabIndex = 18;
-            lblLastName.Text = "Last Name";
+            lblGuestID.Size = new Size(51, 15);
+            lblGuestID.TabIndex = 27;
+            lblGuestID.Text = "Guest ID";
             // 
             // lblFirstName
             // 
             lblFirstName.AutoSize = true;
-            lblFirstName.Location = new Point(496, 55);
+            lblFirstName.Location = new Point(17, 86);
             lblFirstName.Name = "lblFirstName";
-            lblFirstName.Size = new Size(97, 25);
-            lblFirstName.TabIndex = 19;
+            lblFirstName.Size = new Size(64, 15);
+            lblFirstName.TabIndex = 28;
             lblFirstName.Text = "First Name";
+            // 
+            // txtGuestID
+            // 
+            txtGuestID.Location = new Point(17, 60);
+            txtGuestID.Name = "txtGuestID";
+            txtGuestID.ReadOnly = true;
+            txtGuestID.Size = new Size(203, 23);
+            txtGuestID.TabIndex = 29;
+            // 
+            // txtFirstName
+            // 
+            txtFirstName.Location = new Point(17, 104);
+            txtFirstName.Name = "txtFirstName";
+            txtFirstName.Size = new Size(203, 23);
+            txtFirstName.TabIndex = 30;
+            // 
+            // lblLastName
+            // 
+            lblLastName.AutoSize = true;
+            lblLastName.Location = new Point(17, 130);
+            lblLastName.Name = "lblLastName";
+            lblLastName.Size = new Size(63, 15);
+            lblLastName.TabIndex = 31;
+            lblLastName.Text = "Last Name";
+            // 
+            // txtLastName
+            // 
+            txtLastName.Location = new Point(17, 148);
+            txtLastName.Name = "txtLastName";
+            txtLastName.Size = new Size(203, 23);
+            txtLastName.TabIndex = 32;
             // 
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(1250, 55);
+            lblEmail.Location = new Point(17, 174);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(54, 25);
-            lblEmail.TabIndex = 20;
+            lblEmail.Size = new Size(36, 15);
+            lblEmail.TabIndex = 33;
             lblEmail.Text = "Email";
             // 
-            // lblContactNumber
+            // txtEmail
             // 
-            lblContactNumber.AutoSize = true;
-            lblContactNumber.Location = new Point(964, 55);
-            lblContactNumber.Name = "lblContactNumber";
-            lblContactNumber.Size = new Size(143, 25);
-            lblContactNumber.TabIndex = 21;
-            lblContactNumber.Text = "Contact Number";
+            txtEmail.Location = new Point(17, 192);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(203, 23);
+            txtEmail.TabIndex = 34;
             // 
-            // btnSearch
+            // lblPhone
             // 
-            btnSearch.Location = new Point(1262, 5);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(143, 34);
-            btnSearch.TabIndex = 23;
-            btnSearch.Text = "Search button";
-            btnSearch.UseVisualStyleBackColor = true;
+            lblPhone.AutoSize = true;
+            lblPhone.Location = new Point(17, 218);
+            lblPhone.Name = "lblPhone";
+            lblPhone.Size = new Size(96, 15);
+            lblPhone.TabIndex = 35;
+            lblPhone.Text = "Contact Number";
             // 
-            // btnAddNewGuest
+            // txtPhone
             // 
-            btnAddNewGuest.Location = new Point(894, 7);
-            btnAddNewGuest.Name = "btnAddNewGuest";
-            btnAddNewGuest.Size = new Size(153, 34);
-            btnAddNewGuest.TabIndex = 24;
-            btnAddNewGuest.Text = "Add New Guest";
-            btnAddNewGuest.UseVisualStyleBackColor = true;
+            txtPhone.Location = new Point(17, 236);
+            txtPhone.Name = "txtPhone";
+            txtPhone.Size = new Size(203, 23);
+            txtPhone.TabIndex = 36;
             // 
-            // txbSearch
+            // lblRoomType
             // 
-            txbSearch.Location = new Point(1084, 12);
-            txbSearch.Name = "txbSearch";
-            txbSearch.Size = new Size(150, 31);
-            txbSearch.TabIndex = 25;
+            lblRoomType.AutoSize = true;
+            lblRoomType.Location = new Point(17, 262);
+            lblRoomType.Name = "lblRoomType";
+            lblRoomType.Size = new Size(67, 15);
+            lblRoomType.TabIndex = 37;
+            lblRoomType.Text = "Room Type";
+            // 
+            // cmbRoomType
+            // 
+            cmbRoomType.FormattingEnabled = true;
+            cmbRoomType.Location = new Point(17, 280);
+            cmbRoomType.Name = "cmbRoomType";
+            cmbRoomType.Size = new Size(203, 23);
+            cmbRoomType.TabIndex = 38;
+            // 
+            // lblStatus
+            // 
+            lblStatus.AutoSize = true;
+            lblStatus.Location = new Point(17, 306);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(39, 15);
+            lblStatus.TabIndex = 39;
+            lblStatus.Text = "Status";
+            // 
+            // cmbStatus
+            // 
+            cmbStatus.FormattingEnabled = true;
+            cmbStatus.Location = new Point(17, 324);
+            cmbStatus.Name = "cmbStatus";
+            cmbStatus.Size = new Size(203, 23);
+            cmbStatus.TabIndex = 40;
+            // 
+            // btnAdd
+            // 
+            btnAdd.Location = new Point(260, 81);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(75, 23);
+            btnAdd.TabIndex = 41;
+            btnAdd.Text = "Add";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
+            // 
+            // btnUpdate
+            // 
+            btnUpdate.Location = new Point(341, 82);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(75, 23);
+            btnUpdate.TabIndex = 42;
+            btnUpdate.Text = "Update";
+            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Location = new Point(422, 82);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(75, 23);
+            btnDelete.TabIndex = 43;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
+            // 
+            // btnClear
+            // 
+            btnClear.Location = new Point(503, 82);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(75, 23);
+            btnClear.TabIndex = 44;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
             // guest_maintenanceform
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1545, 450);
-            Controls.Add(txbSearch);
-            Controls.Add(btnAddNewGuest);
-            Controls.Add(btnSearch);
-            Controls.Add(lblContactNumber);
+            ClientSize = new Size(1011, 452);
+            Controls.Add(btnClear);
+            Controls.Add(btnDelete);
+            Controls.Add(btnUpdate);
+            Controls.Add(btnAdd);
+            Controls.Add(cmbStatus);
+            Controls.Add(lblStatus);
+            Controls.Add(cmbRoomType);
+            Controls.Add(lblRoomType);
+            Controls.Add(txtPhone);
+            Controls.Add(lblPhone);
+            Controls.Add(txtEmail);
             Controls.Add(lblEmail);
-            Controls.Add(lblFirstName);
+            Controls.Add(txtLastName);
             Controls.Add(lblLastName);
+            Controls.Add(txtFirstName);
+            Controls.Add(txtGuestID);
+            Controls.Add(lblFirstName);
             Controls.Add(lblGuestID);
+            Controls.Add(dgvGuests);
+            Controls.Add(txbSearch);
+            Controls.Add(btnSearch);
             Controls.Add(lblGuestMaintenance);
-            Controls.Add(listViewEmail);
-            Controls.Add(listViewContactNumber);
-            Controls.Add(listViewLastName);
-            Controls.Add(listViewFirstName);
-            Controls.Add(listViewGuestID);
+            Margin = new Padding(2);
             Name = "guest_maintenanceform";
             Text = "guest_maintenanceform";
+            Load += guest_maintenanceform_Load;
             ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvGuests).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button button1;
-        private ListView listViewGuestID;
-        private ListView listViewFirstName;
+        private Button btnAdd;
         private ListView listView5;
-        private ListView listViewLastName;
-        private ListView listViewContactNumber;
         private ListView listView8;
-        private ListView listViewEmail;
         private ListView listView10;
         private Label lblGuestMaintenance;
-        private Label lblGuestID;
-        private Label lblLastName;
-        private Label lblFirstName;
-        private Label lblEmail;
-        private Label lblContactNumber;
         private BindingSource bindingSource1;
-        private TextBox textBox1;
+        private TextBox txtGuestID;
         private Button btnSearch;
-        private Button btnAddNewGuest;
         private TextBox txbSearch;
+        private DataGridView dgvGuests;
+        private Label lblGuestID;
+        private Label lblFirstName;
+        private TextBox txtFirstName;
+        private Label lblLastName;
+        private TextBox txtLastName;
+        private Label lblEmail;
+        private TextBox txtEmail;
+        private Label lblPhone;
+        private TextBox txtPhone;
+        private Label lblRoomType;
+        private ComboBox cmbRoomType;
+        private Label lblStatus;
+        private ComboBox cmbStatus;
+        private Button btnUpdate;
+        private Button btnDelete;
+        private Button btnClear;
     }
 }

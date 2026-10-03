@@ -1,4 +1,5 @@
 ﻿using BusinessLogic.Repository;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,7 +15,7 @@ namespace BusinessLogic.Controller
             _userRepository = new UserRepository();
         }
 
-        public User Login(string username, string password)
+        public UserModel Login(string username, string password)
         {
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {

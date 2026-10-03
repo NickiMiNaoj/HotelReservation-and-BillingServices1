@@ -1,19 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Text;
+using Microsoft.Data.SqlClient;
+using Model;
 
 namespace BusinessLogic.Repository
 {
-    internal class UserRepository
+    public class UserRepository
     {
-        // Change this string to match your database server details
-        private readonly string _connectionString = "Server=localhost;Database=HotelDB;Trusted_Connection=True;";
+        private readonly string _connectionString = @"Server=MIZUTO\SQLEXPRESS;Database=DB;Trusted_Connection=True;TrustServerCertificate=True;";
 
-        // Method to validate login credentials via Stored Procedure
-        public User AuthenticateUser(string username, string password)
+        public UserModel AuthenticateUser(string username, string password)
         {
-            User user = null;
+            UserModel user = null;
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
@@ -21,7 +19,6 @@ namespace BusinessLogic.Repository
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    // Pass parameters to the Stored Procedure
                     cmd.Parameters.AddWithValue("@Username", username);
                     cmd.Parameters.AddWithValue("@Password", password);
 
@@ -29,10 +26,9 @@ namespace BusinessLogic.Repository
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        // If a row is returned, credentials are valid
                         if (reader.Read())
                         {
-                            user = new User
+                            user = new UserModel
                             {
                                 UserID = Convert.ToInt32(reader["UserID"]),
                                 Username = reader["Username"].ToString(),
@@ -44,7 +40,7 @@ namespace BusinessLogic.Repository
                 }
             }
 
-            return user; // Returns user if found, or null if login failed
+            return user;
         }
     }
 }

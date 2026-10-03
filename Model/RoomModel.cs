@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Model
 {
-    internal class RoomModel
+    public class RoomModel
     {
         public int RoomID { get; set; }
         public string RoomNumber { get; set; }

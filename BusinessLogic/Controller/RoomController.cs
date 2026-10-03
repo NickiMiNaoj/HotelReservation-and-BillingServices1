@@ -1,4 +1,5 @@
 ﻿using BusinessLogic.Repository;
+using Model;
 using System.Collections.Generic;
 
 namespace BusinessLogic.Controller
@@ -13,7 +14,7 @@ namespace BusinessLogic.Controller
         }
 
         // Retrieve all rooms
-        public List<Room> GetAllRooms()
+        public List<RoomModel> GetAllRooms()
         {
             return _roomRepository.GetAllRooms();
         }
@@ -30,7 +31,7 @@ namespace BusinessLogic.Controller
             if (capacity <= 0)
                 return "Capacity must be at least 1 person.";
 
-            Room newRoom = new Room
+            RoomModel newRoom = new RoomModel
             {
                 RoomNumber = roomNumber,
                 RoomType = roomType,
@@ -53,7 +54,7 @@ namespace BusinessLogic.Controller
             if (string.IsNullOrWhiteSpace(roomNumber))
                 return "Room number is required.";
 
-            Room roomToUpdate = new Room
+            RoomModel roomToUpdate = new RoomModel
             {
                 RoomID = roomId,
                 RoomNumber = roomNumber,
