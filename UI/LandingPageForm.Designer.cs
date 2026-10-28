@@ -39,10 +39,10 @@
             button11 = new Button();
             button10 = new Button();
             button9 = new Button();
-            button8 = new Button();
+            btnCheckInOut = new Button();
             button7 = new Button();
             button6 = new Button();
-            button5 = new Button();
+            btnRoomReservation = new Button();
             btnRooms = new Button();
             button2 = new Button();
             button3 = new Button();
@@ -127,10 +127,10 @@
             panel2.Controls.Add(button11);
             panel2.Controls.Add(button10);
             panel2.Controls.Add(button9);
-            panel2.Controls.Add(button8);
+            panel2.Controls.Add(btnCheckInOut);
             panel2.Controls.Add(button7);
             panel2.Controls.Add(button6);
-            panel2.Controls.Add(button5);
+            panel2.Controls.Add(btnRoomReservation);
             panel2.Controls.Add(btnRooms);
             panel2.Controls.Add(button2);
             panel2.Controls.Add(button3);
@@ -170,15 +170,16 @@
             button9.Text = "Services (Add-ons)";
             button9.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // btnCheckInOut
             // 
-            button8.Font = new Font("Calisto MT", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button8.Location = new Point(56, 617);
-            button8.Name = "button8";
-            button8.Size = new Size(306, 66);
-            button8.TabIndex = 8;
-            button8.Text = "Check-in/Check-out";
-            button8.UseVisualStyleBackColor = true;
+            btnCheckInOut.Font = new Font("Calisto MT", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCheckInOut.Location = new Point(56, 617);
+            btnCheckInOut.Name = "btnCheckInOut";
+            btnCheckInOut.Size = new Size(306, 66);
+            btnCheckInOut.TabIndex = 8;
+            btnCheckInOut.Text = "Check-in/Check-out";
+            btnCheckInOut.UseVisualStyleBackColor = true;
+            btnCheckInOut.Click += btnCheckInOut_Click;
             // 
             // button7
             // 
@@ -200,15 +201,16 @@
             button6.Text = "Guests";
             button6.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnRoomReservation
             // 
-            button5.Font = new Font("Calisto MT", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button5.Location = new Point(56, 355);
-            button5.Name = "button5";
-            button5.Size = new Size(306, 66);
-            button5.TabIndex = 5;
-            button5.Text = "Raservation";
-            button5.UseVisualStyleBackColor = true;
+            btnRoomReservation.Font = new Font("Calisto MT", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRoomReservation.Location = new Point(56, 355);
+            btnRoomReservation.Name = "btnRoomReservation";
+            btnRoomReservation.Size = new Size(306, 66);
+            btnRoomReservation.TabIndex = 5;
+            btnRoomReservation.Text = "Raservation";
+            btnRoomReservation.UseVisualStyleBackColor = true;
+            btnRoomReservation.Click += btnRoomReservation_Click;
             // 
             // btnRooms
             // 
@@ -290,10 +292,10 @@
         private Button btnDashboard;
         private Button btnRooms;
         private Button button2;
-        private Button button8;
+        private Button btnCheckInOut;
         private Button button7;
         private Button button6;
-        private Button button5;
+        private Button btnRoomReservation;
         private Button button11;
         private Button button10;
         private Button button9;
