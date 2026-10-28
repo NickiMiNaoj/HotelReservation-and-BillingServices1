@@ -43,10 +43,11 @@
             button7 = new Button();
             button6 = new Button();
             button5 = new Button();
-            button4 = new Button();
+            btnRooms = new Button();
             button2 = new Button();
             button3 = new Button();
             btnDashboard = new Button();
+            pnlHandlingUC = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -55,9 +56,9 @@
             // btnLogout
             // 
             btnLogout.Font = new Font("Calisto MT", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLogout.Location = new Point(1673, 33);
+            btnLogout.Location = new Point(1715, 26);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(207, 66);
+            btnLogout.Size = new Size(160, 41);
             btnLogout.TabIndex = 0;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = true;
@@ -66,6 +67,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.GradientActiveCaption;
+            panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(button12);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label2);
@@ -73,15 +75,15 @@
             panel1.Controls.Add(btnLogout);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1923, 130);
+            panel1.Size = new Size(1923, 104);
             panel1.TabIndex = 1;
             // 
             // button12
             // 
             button12.Font = new Font("Calisto MT", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button12.Location = new Point(1417, 33);
+            button12.Location = new Point(1525, 26);
             button12.Name = "button12";
-            button12.Size = new Size(207, 66);
+            button12.Size = new Size(160, 41);
             button12.TabIndex = 12;
             button12.Text = "Settings";
             button12.UseVisualStyleBackColor = true;
@@ -91,7 +93,8 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(24, 3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(150, 120);
+            pictureBox1.Size = new Size(118, 91);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 12;
             pictureBox1.TabStop = false;
             // 
@@ -100,9 +103,9 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ActiveCaptionText;
-            label2.Location = new Point(330, 62);
+            label2.Location = new Point(318, 52);
             label2.Name = "label2";
-            label2.Size = new Size(352, 48);
+            label2.Size = new Size(240, 32);
             label2.TabIndex = 4;
             label2.Text = "Management System";
             // 
@@ -110,15 +113,17 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Felix Titling", 28F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(220, 9);
+            label1.Location = new Point(171, 8);
             label1.Name = "label1";
-            label1.Size = new Size(588, 66);
+            label1.Size = new Size(399, 44);
             label1.TabIndex = 3;
             label1.Text = "HOTEL RSERVATION";
             // 
             // panel2
             // 
             panel2.BackColor = SystemColors.GradientActiveCaption;
+            panel2.BackgroundImageLayout = ImageLayout.Stretch;
+            panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(button11);
             panel2.Controls.Add(button10);
             panel2.Controls.Add(button9);
@@ -126,13 +131,13 @@
             panel2.Controls.Add(button7);
             panel2.Controls.Add(button6);
             panel2.Controls.Add(button5);
-            panel2.Controls.Add(button4);
+            panel2.Controls.Add(btnRooms);
             panel2.Controls.Add(button2);
             panel2.Controls.Add(button3);
             panel2.Controls.Add(btnDashboard);
-            panel2.Location = new Point(0, 129);
+            panel2.Location = new Point(0, 104);
             panel2.Name = "panel2";
-            panel2.Size = new Size(468, 1077);
+            panel2.Size = new Size(468, 975);
             panel2.TabIndex = 2;
             // 
             // button11
@@ -205,15 +210,16 @@
             button5.Text = "Raservation";
             button5.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnRooms
             // 
-            button4.Font = new Font("Calisto MT", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.Location = new Point(56, 101);
-            button4.Name = "button4";
-            button4.Size = new Size(306, 66);
-            button4.TabIndex = 4;
-            button4.Text = "Rooms";
-            button4.UseVisualStyleBackColor = true;
+            btnRooms.Font = new Font("Calisto MT", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRooms.Location = new Point(56, 101);
+            btnRooms.Name = "btnRooms";
+            btnRooms.Size = new Size(306, 66);
+            btnRooms.TabIndex = 4;
+            btnRooms.Text = "Rooms";
+            btnRooms.UseVisualStyleBackColor = true;
+            btnRooms.Click += btnRooms_Click;
             // 
             // button2
             // 
@@ -245,11 +251,21 @@
             btnDashboard.Text = "Dashboard";
             btnDashboard.UseVisualStyleBackColor = true;
             // 
+            // pnlHandlingUC
+            // 
+            pnlHandlingUC.BackgroundImageLayout = ImageLayout.Stretch;
+            pnlHandlingUC.BorderStyle = BorderStyle.FixedSingle;
+            pnlHandlingUC.Location = new Point(470, 110);
+            pnlHandlingUC.Name = "pnlHandlingUC";
+            pnlHandlingUC.Size = new Size(1447, 965);
+            pnlHandlingUC.TabIndex = 3;
+            // 
             // LandingPageForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1920, 1106);
+            ClientSize = new Size(1920, 1080);
+            Controls.Add(pnlHandlingUC);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -272,7 +288,7 @@
         private Label label2;
         private Button button3;
         private Button btnDashboard;
-        private Button button4;
+        private Button btnRooms;
         private Button button2;
         private Button button8;
         private Button button7;
@@ -283,5 +299,6 @@
         private Button button9;
         private Button button12;
         private PictureBox pictureBox1;
+        private Panel pnlHandlingUC;
     }
 }
