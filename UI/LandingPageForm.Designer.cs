@@ -42,7 +42,7 @@
             button8 = new Button();
             button7 = new Button();
             button6 = new Button();
-            button5 = new Button();
+            btnRoomReservation = new Button();
             btnRooms = new Button();
             button2 = new Button();
             button3 = new Button();
@@ -130,7 +130,7 @@
             panel2.Controls.Add(button8);
             panel2.Controls.Add(button7);
             panel2.Controls.Add(button6);
-            panel2.Controls.Add(button5);
+            panel2.Controls.Add(btnRoomReservation);
             panel2.Controls.Add(btnRooms);
             panel2.Controls.Add(button2);
             panel2.Controls.Add(button3);
@@ -200,15 +200,16 @@
             button6.Text = "Guests";
             button6.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnRoomReservation
             // 
-            button5.Font = new Font("Calisto MT", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button5.Location = new Point(56, 355);
-            button5.Name = "button5";
-            button5.Size = new Size(306, 66);
-            button5.TabIndex = 5;
-            button5.Text = "Raservation";
-            button5.UseVisualStyleBackColor = true;
+            btnRoomReservation.Font = new Font("Calisto MT", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRoomReservation.Location = new Point(56, 355);
+            btnRoomReservation.Name = "btnRoomReservation";
+            btnRoomReservation.Size = new Size(306, 66);
+            btnRoomReservation.TabIndex = 5;
+            btnRoomReservation.Text = "Raservation";
+            btnRoomReservation.UseVisualStyleBackColor = true;
+            btnRoomReservation.Click += btnRoomReservation_Click;
             // 
             // btnRooms
             // 
@@ -293,7 +294,7 @@
         private Button button8;
         private Button button7;
         private Button button6;
-        private Button button5;
+        private Button btnRoomReservation;
         private Button button11;
         private Button button10;
         private Button button9;

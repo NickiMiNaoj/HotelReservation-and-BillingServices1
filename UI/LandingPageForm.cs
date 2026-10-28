@@ -33,5 +33,11 @@ namespace UI
             AvailabilityViewUserControl avControl = new AvailabilityViewUserControl();
             LoadUserControl(avControl);
         }
+
+        private void btnRoomReservation_Click(object sender, EventArgs e)
+        {
+            RoomReservationUserControl avControl = new RoomReservationUserControl();
+            LoadUserControl((RoomReservationUserControl)avControl);
+        }
     }
 }
