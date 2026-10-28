@@ -19,5 +19,19 @@ namespace UI
         {
             this.Close();
         }
+
+        private void LoadUserControl(UserControl uc)
+        {
+            pnlHandlingUC.Controls.Clear();
+            uc.Dock = DockStyle.Fill;
+            pnlHandlingUC.Controls.Add(uc);
+            uc.BringToFront();
+        }
+
+        private void btnRooms_Click(object sender, EventArgs e)
+        {
+            AvailabilityViewUserControl avControl = new AvailabilityViewUserControl();
+            LoadUserControl(avControl);
+        }
     }
 }
