@@ -39,7 +39,7 @@
             button11 = new Button();
             button10 = new Button();
             button9 = new Button();
-            button8 = new Button();
+            btnCheckInOut = new Button();
             button7 = new Button();
             button6 = new Button();
             btnRoomReservation = new Button();
@@ -127,7 +127,7 @@
             panel2.Controls.Add(button11);
             panel2.Controls.Add(button10);
             panel2.Controls.Add(button9);
-            panel2.Controls.Add(button8);
+            panel2.Controls.Add(btnCheckInOut);
             panel2.Controls.Add(button7);
             panel2.Controls.Add(button6);
             panel2.Controls.Add(btnRoomReservation);
@@ -170,15 +170,16 @@
             button9.Text = "Services (Add-ons)";
             button9.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // btnCheckInOut
             // 
-            button8.Font = new Font("Calisto MT", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button8.Location = new Point(56, 617);
-            button8.Name = "button8";
-            button8.Size = new Size(306, 66);
-            button8.TabIndex = 8;
-            button8.Text = "Check-in/Check-out";
-            button8.UseVisualStyleBackColor = true;
+            btnCheckInOut.Font = new Font("Calisto MT", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCheckInOut.Location = new Point(56, 617);
+            btnCheckInOut.Name = "btnCheckInOut";
+            btnCheckInOut.Size = new Size(306, 66);
+            btnCheckInOut.TabIndex = 8;
+            btnCheckInOut.Text = "Check-in/Check-out";
+            btnCheckInOut.UseVisualStyleBackColor = true;
+            btnCheckInOut.Click += btnCheckInOut_Click;
             // 
             // button7
             // 
@@ -291,7 +292,7 @@
         private Button btnDashboard;
         private Button btnRooms;
         private Button button2;
-        private Button button8;
+        private Button btnCheckInOut;
         private Button button7;
         private Button button6;
         private Button btnRoomReservation;
