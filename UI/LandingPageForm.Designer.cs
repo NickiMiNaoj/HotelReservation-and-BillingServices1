@@ -40,7 +40,7 @@
             button10 = new Button();
             button9 = new Button();
             btnCheckInOut = new Button();
-            button7 = new Button();
+            btnBillingPayment = new Button();
             button6 = new Button();
             btnRoomReservation = new Button();
             btnRooms = new Button();
@@ -128,7 +128,7 @@
             panel2.Controls.Add(button10);
             panel2.Controls.Add(button9);
             panel2.Controls.Add(btnCheckInOut);
-            panel2.Controls.Add(button7);
+            panel2.Controls.Add(btnBillingPayment);
             panel2.Controls.Add(button6);
             panel2.Controls.Add(btnRoomReservation);
             panel2.Controls.Add(btnRooms);
@@ -181,15 +181,16 @@
             btnCheckInOut.UseVisualStyleBackColor = true;
             btnCheckInOut.Click += btnCheckInOut_Click;
             // 
-            // button7
+            // btnBillingPayment
             // 
-            button7.Font = new Font("Calisto MT", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button7.Location = new Point(56, 530);
-            button7.Name = "button7";
-            button7.Size = new Size(306, 66);
-            button7.TabIndex = 7;
-            button7.Text = "Bulling/Payment";
-            button7.UseVisualStyleBackColor = true;
+            btnBillingPayment.Font = new Font("Calisto MT", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBillingPayment.Location = new Point(56, 530);
+            btnBillingPayment.Name = "btnBillingPayment";
+            btnBillingPayment.Size = new Size(306, 66);
+            btnBillingPayment.TabIndex = 7;
+            btnBillingPayment.Text = "Billing/Payment";
+            btnBillingPayment.UseVisualStyleBackColor = true;
+            btnBillingPayment.Click += btnBillingPayment_Click;
             // 
             // button6
             // 
@@ -293,7 +294,7 @@
         private Button btnRooms;
         private Button button2;
         private Button btnCheckInOut;
-        private Button button7;
+        private Button btnBillingPayment;
         private Button button6;
         private Button btnRoomReservation;
         private Button button11;
