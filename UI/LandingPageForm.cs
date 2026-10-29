@@ -45,5 +45,11 @@ namespace UI
             CheckInCheckOutUserControl avControl = new CheckInCheckOutUserControl();
             LoadUserControl(avControl);
         }
+
+        private void btnBillingPayment_Click(object sender, EventArgs e)
+        {
+            BillingPaymentUserControl avControl = new BillingPaymentUserControl();
+            LoadUserControl(avControl);
+        }
     }
 }
