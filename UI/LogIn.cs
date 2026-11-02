@@ -44,13 +44,13 @@ namespace UI
 
                                 if (role == "Admin")
                                 {
-                                    admindashboardform adminForm = new admindashboardform();
+                                    LandingPageForm adminForm = new LandingPageForm();
                                     adminForm.Show();
                                     this.Hide();
                                 }
                                 else if (role == "Front Desk")
                                 {
-                                    frontdeskdashboardForm frontDeskForm = new frontdeskdashboardForm();
+                                    LandingPageForm frontDeskForm = new LandingPageForm();
                                     frontDeskForm.Show();
                                     this.Hide();
                                 }

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class guest_maintenanceform : Form
+    public partial class guest_maintenanceform : UserControl
     {
         private readonly GuestController _guestController;
         public guest_maintenanceform()
@@ -190,5 +190,6 @@ namespace UI
                 cmbStatus.SelectedItem = guest.Status;
             }
         }
+
     }
 }
