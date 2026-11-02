@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLogic.Controller;
+using Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -49,6 +51,12 @@ namespace UI
         private void btnBillingPayment_Click(object sender, EventArgs e)
         {
             BillingPaymentUserControl avControl = new BillingPaymentUserControl();
+            LoadUserControl(avControl);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            guest_maintenanceform avControl = new guest_maintenanceform();
             LoadUserControl(avControl);
         }
     }

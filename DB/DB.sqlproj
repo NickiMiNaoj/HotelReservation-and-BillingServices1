@@ -77,9 +77,15 @@
     <Build Include="Table\tblRooms.sql" />
     <Build Include="Table\tblGuests.sql" />
     <Build Include="StoredProc\sp_GuestOperations.sql" />
-    <Build Include="Table\tblReservations.sql" />
+<Build Include="Table\tblUsers.sql" />
+    <Build Include="Table\tblRooms.sql" />
+    <Build Include="Table\tblGuests.sql" />
+    <Build Include="StoredProc\sp_GuestOperations.sql" />
+    <Build Include="StoredProc\sp_ProcessCheckIn.sql" />
+    <Build Include="StoredProc\sp_ProcessCheckOut.sql" />
     <Build Include="Table\tblReservationRooms.sql" />
-    <Build Include="Type\udtRoomIdList.sql" />
+    <Build Include="Table\tblReservations.sql" />
+    <Build Include="Type\udtRoomIDList.sql" />
     <Build Include="StoredProc\sp_CreateReservation.sql" />
     <Build Include="StoredProc\sp_UpdateReservationStatus.sql" />
     <Build Include="StoredProc\sp_GetRoomAvailability.sql" />
