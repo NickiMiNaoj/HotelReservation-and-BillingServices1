@@ -8,16 +8,11 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class RoomMaintenanceForm : Form
+    public partial class ReservationStatusManagementUserControl : UserControl
     {
-        public RoomMaintenanceForm()
+        public ReservationStatusManagementUserControl()
         {
             InitializeComponent();
-        }
-
-        private void button12_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
