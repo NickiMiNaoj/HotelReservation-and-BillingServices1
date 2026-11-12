@@ -1,113 +1,130 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using Microsoft.Data.SqlClient;
+using System.Text;
+using Microsoft.Data.SqlClient;   // NuGet: Microsoft.Data.SqlClient
 using Model;
 
 namespace BusinessLogic.Repository
 {
     public class RoomRepository
     {
-        private readonly string _connectionString = "Server=LAPTOP-4TR6CTSS\\SQLEXPRESS09;Database=HotelDB;Trusted_Connection=True;";
-
-        // 1. CREATE: Add a new room
-        public bool AddRoom(RoomModel room)
+        // Inserts a new room and returns the new auto-generated RoomID
+        public int Insert(Room room)
         {
-            using (SqlConnection conn = new SqlConnection(_connectionString))
+            using (SqlConnection conn = new SqlConnection(DatabaseConfig.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand("usp_Room_Insert", conn))
             {
-                using (SqlCommand cmd = new SqlCommand("sp_AddRoom", conn))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandType = CommandType.StoredProcedure;
+                AddRoomParameters(cmd, room);
 
-                    cmd.Parameters.AddWithValue("@RoomNumber", room.RoomNumber);
-                    cmd.Parameters.AddWithValue("@RoomType", room.RoomType);
-                    cmd.Parameters.AddWithValue("@NightlyRate", room.NightlyRate);
-                    cmd.Parameters.AddWithValue("@Capacity", room.Capacity);
-                    cmd.Parameters.AddWithValue("@RoomStatus", room.RoomStatus);
-                    cmd.Parameters.AddWithValue("@Description", (object)room.Description ?? DBNull.Value);
-
-                    conn.Open();
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    return rowsAffected > 0;
-                }
+                conn.Open();
+                return Convert.ToInt32(cmd.ExecuteScalar());
             }
         }
 
-        // 2. READ: Get all rooms
-        public List<RoomModel> GetAllRooms()
+        public void Update(Room room)
         {
-            List<RoomModel> roomList = new List<RoomModel>();
-
-            using (SqlConnection conn = new SqlConnection(_connectionString))
+            using (SqlConnection conn = new SqlConnection(DatabaseConfig.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand("usp_Room_Update", conn))
             {
-                using (SqlCommand cmd = new SqlCommand("sp_GetAllRooms", conn))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    conn.Open();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@RoomID", room.RoomID);
+                AddRoomParameters(cmd, room);
 
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public void Delete(int roomId)
+        {
+            using (SqlConnection conn = new SqlConnection(DatabaseConfig.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand("usp_Room_Delete", conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@RoomID", roomId);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        // Room list for the grid. A keyword (optional) filters the list.
+        public List<Room> GetAll(string keyword = null)
+        {
+            using (SqlConnection conn = new SqlConnection(DatabaseConfig.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand("usp_Room_GetAll", conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                if (string.IsNullOrWhiteSpace(keyword))
+                    cmd.Parameters.AddWithValue("@Keyword", DBNull.Value);
+                else
+                    cmd.Parameters.AddWithValue("@Keyword", keyword.Trim());
+
+                conn.Open();
+                return ReadRooms(cmd);
+            }
+        }
+
+        // Rooms for the floor grid. A null/empty roomType means all types.
+        public List<Room> GetRoomGrid(DateTime date, string roomType = null)
+        {
+            using (SqlConnection conn = new SqlConnection(DatabaseConfig.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand("usp_Room_GetGrid", conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Date", date.Date);
+                if (string.IsNullOrWhiteSpace(roomType))
+                    cmd.Parameters.AddWithValue("@RoomType", DBNull.Value);
+                else
+                    cmd.Parameters.AddWithValue("@RoomType", roomType);
+
+                conn.Open();
+                return ReadRooms(cmd);
+            }
+        }
+
+        // ---------- helpers ----------
+        private static void AddRoomParameters(SqlCommand cmd, Room room)
+        {
+            cmd.Parameters.AddWithValue("@RoomNumber", room.RoomNumber);
+            cmd.Parameters.AddWithValue("@Floor", room.Floor);
+            cmd.Parameters.AddWithValue("@RoomType", room.RoomType);
+            cmd.Parameters.AddWithValue("@NightlyRate", room.NightlyRate);
+            cmd.Parameters.AddWithValue("@MaxCapacity", room.MaxCapacity);
+            cmd.Parameters.AddWithValue("@BedType", room.BedType);
+            cmd.Parameters.AddWithValue("@Status", room.Status);
+            cmd.Parameters.AddWithValue("@Description",
+                string.IsNullOrWhiteSpace(room.Description) ? (object)DBNull.Value : room.Description);
+            cmd.Parameters.AddWithValue("@Amenities",
+                string.IsNullOrWhiteSpace(room.Amenities) ? (object)DBNull.Value : room.Amenities);
+        }
+
+        private static List<Room> ReadRooms(SqlCommand cmd)
+        {
+            List<Room> rooms = new List<Room>();
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    rooms.Add(new Room
                     {
-                        while (reader.Read())
-                        {
-                            RoomModel room = new RoomModel
-                            {
-                                RoomID = Convert.ToInt32(reader["RoomID"]),
-                                RoomNumber = reader["RoomNumber"].ToString(),
-                                RoomType = reader["RoomType"].ToString(),
-                                NightlyRate = Convert.ToDecimal(reader["NightlyRate"]),
-                                Capacity = Convert.ToInt32(reader["Capacity"]),
-                                RoomStatus = reader["RoomStatus"].ToString(),
-                                Description = reader["Description"] != DBNull.Value ? reader["Description"].ToString() : ""
-                            };
-
-                            roomList.Add(room);
-                        }
-                    }
+                        RoomID = Convert.ToInt32(reader["RoomID"]),
+                        RoomNumber = reader["RoomNumber"].ToString(),
+                        Floor = Convert.ToInt32(reader["Floor"]),
+                        RoomType = reader["RoomType"].ToString(),
+                        NightlyRate = Convert.ToDecimal(reader["NightlyRate"]),
+                        MaxCapacity = Convert.ToInt32(reader["MaxCapacity"]),
+                        BedType = reader["BedType"].ToString(),
+                        Status = reader["Status"].ToString(),
+                        Description = reader["Description"] == DBNull.Value ? string.Empty : reader["Description"].ToString(),
+                        Amenities = reader["Amenities"] == DBNull.Value ? string.Empty : reader["Amenities"].ToString()
+                    });
                 }
             }
-
-            return roomList;
-        }
-
-        // 3. UPDATE: Update an existing room
-        public bool UpdateRoom(RoomModel room)
-        {
-            using (SqlConnection conn = new SqlConnection(_connectionString))
-            {
-                using (SqlCommand cmd = new SqlCommand("sp_UpdateRoom", conn))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    cmd.Parameters.AddWithValue("@RoomID", room.RoomID);
-                    cmd.Parameters.AddWithValue("@RoomNumber", room.RoomNumber);
-                    cmd.Parameters.AddWithValue("@RoomType", room.RoomType);
-                    cmd.Parameters.AddWithValue("@NightlyRate", room.NightlyRate);
-                    cmd.Parameters.AddWithValue("@Capacity", room.Capacity);
-                    cmd.Parameters.AddWithValue("@RoomStatus", room.RoomStatus);
-                    cmd.Parameters.AddWithValue("@Description", (object)room.Description ?? DBNull.Value);
-
-                    conn.Open();
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    return rowsAffected > 0;
-                }
-            }
-        }
-
-        // 4. DELETE: Delete a room by ID
-        public bool DeleteRoom(int roomId)
-        {
-            using (SqlConnection conn = new SqlConnection(_connectionString))
-            {
-                using (SqlCommand cmd = new SqlCommand("sp_DeleteRoom", conn))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@RoomID", roomId);
-
-                    conn.Open();
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    return rowsAffected > 0;
-                }
-            }
+            return rooms;
         }
     }
 }

@@ -1,82 +1,129 @@
-﻿using BusinessLogic.Repository;
-using Model;
+﻿using System;
 using System.Collections.Generic;
+using System.Text;
+using Microsoft.Data.SqlClient;
+using Model;
+using BusinessLogic.Repository;
 
 namespace BusinessLogic.Controller
 {
     public class RoomController
     {
-        private readonly RoomRepository _roomRepository;
+        private readonly RoomRepository _repository = new RoomRepository();
 
-        public RoomController()
+        private static readonly string[] ValidBedTypes = { "Single", "Twin", "Queen", "King" };
+        private static readonly string[] ValidStatuses = { "Available", "Occupied", "Needs Housekeeping", "Under Maintenance" };
+
+        public bool AddRoom(Room room, out string message)
         {
-            _roomRepository = new RoomRepository();
-        }
-
-        // Retrieve all rooms
-        public List<RoomModel> GetAllRooms()
-        {
-            return _roomRepository.GetAllRooms();
-        }
-
-        // Add a new room with input checks
-        public string AddRoom(string roomNumber, string roomType, decimal nightlyRate, int capacity, string status, string description)
-        {
-            if (string.IsNullOrWhiteSpace(roomNumber))
-                return "Room number is required.";
-
-            if (nightlyRate < 0)
-                return "Nightly rate cannot be negative.";
-
-            if (capacity <= 0)
-                return "Capacity must be at least 1 person.";
-
-            RoomModel newRoom = new RoomModel
+            string error = Validate(room);
+            if (error != null)
             {
-                RoomNumber = roomNumber,
-                RoomType = roomType,
-                NightlyRate = nightlyRate,
-                Capacity = capacity,
-                RoomStatus = string.IsNullOrWhiteSpace(status) ? "Available" : status,
-                Description = description
-            };
+                message = error;
+                return false;
+            }
 
-            bool success = _roomRepository.AddRoom(newRoom);
-            return success ? "Success" : "Failed to save room. Check if the room number already exists.";
+            try
+            {
+                room.RoomID = _repository.Insert(room);
+                message = "Room saved.";
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                message = ex.Message;   // e.g. "Room number already exists."
+                return false;
+            }
         }
 
-        // Update room details
-        public string UpdateRoom(int roomId, string roomNumber, string roomType, decimal nightlyRate, int capacity, string status, string description)
+        public bool UpdateRoom(Room room, out string message)
+        {
+            if (room.RoomID <= 0)
+            {
+                message = "Select a room to update.";
+                return false;
+            }
+
+            string error = Validate(room);
+            if (error != null)
+            {
+                message = error;
+                return false;
+            }
+
+            try
+            {
+                _repository.Update(room);
+                message = "Room updated.";
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                message = ex.Message;
+                return false;
+            }
+        }
+
+        public bool DeleteRoom(int roomId, out string message)
         {
             if (roomId <= 0)
-                return "Invalid Room ID selected.";
-
-            if (string.IsNullOrWhiteSpace(roomNumber))
-                return "Room number is required.";
-
-            RoomModel roomToUpdate = new RoomModel
             {
-                RoomID = roomId,
-                RoomNumber = roomNumber,
-                RoomType = roomType,
-                NightlyRate = nightlyRate,
-                Capacity = capacity,
-                RoomStatus = status,
-                Description = description
-            };
+                message = "Select a room to delete.";
+                return false;
+            }
 
-            bool success = _roomRepository.UpdateRoom(roomToUpdate);
-            return success ? "Success" : "Failed to update room details.";
+            try
+            {
+                _repository.Delete(roomId);
+                message = "Room deleted.";
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                message = ex.Message;
+                return false;
+            }
         }
 
-        // Delete room
-        public string DeleteRoom(int roomId)
+        public List<Room> GetAllRooms(string keyword = null)
         {
-            if (roomId <= 0)
-                return "Please select a valid room to delete.";
+            return _repository.GetAll(keyword);
+        }
 
-            bool success = _roomRepository.DeleteRoom(roomId);
-            return success ? "Success" : "Failed to delete room.";
+        public List<Room> GetRoomGrid(DateTime date, string roomType = null)
+        {
+            return _repository.GetRoomGrid(date, roomType);
+        }
+
+        // Returns an error message, or null when everything is valid
+        private string Validate(Room room)
+        {
+            if (string.IsNullOrWhiteSpace(room.RoomNumber))
+                return "Room number is required.";
+            if (string.IsNullOrWhiteSpace(room.RoomType))
+                return "Please select a room type.";
+            if (room.NightlyRate <= 0)
+                return "Nightly rate must be greater than zero.";
+            if (room.MaxCapacity < 1 || room.MaxCapacity > 10)
+                return "Maximum capacity must be between 1 and 10.";
+            if (Array.IndexOf(ValidBedTypes, room.BedType) < 0)
+                return "Please select a valid bed type.";
+            if (Array.IndexOf(ValidStatuses, room.Status) < 0)
+                return "Please select a valid room status.";
+
+            // The Rooms Maintenance form has no Floor field, so use the first digit
+            // of the room number (101 = 1st floor, 205 = 2nd floor, 312 = 3rd floor).
+            if (room.Floor <= 0)
+            {
+                char first = room.RoomNumber.Trim()[0];
+                if (char.IsDigit(first) && first != '0')
+                    room.Floor = first - '0';
+                else
+                    return "Use a room number that starts with the floor digit (for example 101).";
+            }
+
+            room.RoomNumber = room.RoomNumber.Trim();
+            return null;
         }
     }
 }
