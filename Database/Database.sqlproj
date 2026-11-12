@@ -3,16 +3,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>DB</Name>
+    <Name>Database</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{d3a54804-fbda-5214-776f-1edbc763a7e3}</ProjectGuid>
+    <ProjectGuid>{299efd34-59e9-4e05-bd46-3864ce4dc432}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql170DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>DB</RootNamespace>
-    <AssemblyName>DB</AssemblyName>
+    <RootNamespace>Database</RootNamespace>
+    <AssemblyName>Database</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
@@ -56,41 +56,19 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="View" />
-    <Folder Include="Table" />
-    <Folder Include="Script" />
-    <Folder Include="StoredProc" />
-    <Folder Include="Type" />
+    <Folder Include="Scripts" />
+    <Folder Include="Tables" />
+    <Folder Include="Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="View\vw_UserSummary.sql" />
-    <None Include="StoredProc\sp_UserLogin.sql" />
-    <None Include="Script\SeedUsers.sql" />
-    <None Include="Script\SeedRooms.sql" />
-    <None Include="StoredProc\sp_RoomOperations.sql" />
-    <None Include="View\vw_AvailableRooms.sql" />
-    <None Include="Script\SeedGuests.sql" />
-    <None Include="Script\TestReservations.sql" />
+    <Build Include="Tables\tblEmployees.sql" />
+    <Build Include="Stored Procedures\usp_Employee_Login.sql" />
+    <Build Include="Stored Procedures\usp_Employee_Insert.sql" />
+    <Build Include="Stored Procedures\usp_Employee_GetAll.sql" />
+    <Build Include="Stored Procedures\usp_Employee_Update.sql" />
+    <Build Include="Stored Procedures\usp_Employee_Deactivate.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Table\tblUsers.sql" />
-    <Build Include="Table\tblRooms.sql" />
-    <Build Include="Table\tblGuests.sql" />
-    <Build Include="StoredProc\sp_GuestOperations.sql" />
-<Build Include="Table\tblUsers.sql" />
-    <Build Include="Table\tblRooms.sql" />
-    <Build Include="Table\tblGuests.sql" />
-    <Build Include="StoredProc\sp_GuestOperations.sql" />
-    <Build Include="StoredProc\sp_ProcessCheckIn.sql" />
-    <Build Include="StoredProc\sp_ProcessCheckOut.sql" />
-    <Build Include="Table\tblReservationRooms.sql" />
-    <Build Include="Table\tblReservations.sql" />
-    <Build Include="Type\udtRoomIDList.sql" />
-    <Build Include="StoredProc\sp_CreateReservation.sql" />
-    <Build Include="StoredProc\sp_UpdateReservationStatus.sql" />
-    <Build Include="StoredProc\sp_GetRoomAvailability.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <RefactorLog Include="DB.refactorlog" />
+    <None Include="Scripts\tblEmployees.sql" />
   </ItemGroup>
 </Project>
