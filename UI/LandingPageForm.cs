@@ -1,6 +1,4 @@
-﻿using BusinessLogic.Controller;
-using Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -54,10 +52,28 @@ namespace UI
             LoadUserControl(avControl);
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void btnDashboard_Click(object sender, EventArgs e)
         {
-            guest_maintenanceform avControl = new guest_maintenanceform();
-            LoadUserControl(avControl);
+            DashboardForm dashboardForm = new DashboardForm();
+            dashboardForm.TopLevel = false;
+            dashboardForm.FormBorderStyle = FormBorderStyle.None;
+
+            dashboardForm.Dock = DockStyle.Fill;
+            pnlHandlingUC.Controls.Clear();
+            pnlHandlingUC.Controls.Add(dashboardForm);
+            dashboardForm.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            RoomsMaintenanceUserControl roomsMaintenanceUserControl = new RoomsMaintenanceUserControl();
+            LoadUserControl(roomsMaintenanceUserControl);
+        }
+
+        private void btnUserRole_Click(object sender, EventArgs e)
+        {
+            UserRolesManagementUserControl userRolesManagementUserControl = new UserRolesManagementUserControl();
+            LoadUserControl(userRolesManagementUserControl);
         }
     }
 }

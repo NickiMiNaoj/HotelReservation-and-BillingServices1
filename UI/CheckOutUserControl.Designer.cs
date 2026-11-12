@@ -162,7 +162,6 @@
             btnClearLookup.TabIndex = 6;
             btnClearLookup.Text = "Clear";
             btnClearLookup.UseVisualStyleBackColor = false;
-            btnClearLookup.Click += btnClearLookup_Click;
             // 
             // panelVerification
             // 
