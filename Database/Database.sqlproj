@@ -73,6 +73,13 @@
     <Build Include="Stored Procedures\usp_Room_Delete.sql" />
     <Build Include="Stored Procedures\usp_Room_GetAll.sql" />
     <Build Include="Stored Procedures\usp_Room_GetGrid.sql" />
+    <Build Include="Tables\tblReservations.sql" />
+    <Build Include="Tables\tblGuests.sql" />
+    <Build Include="Stored Procedures\usp_Reservation_Insert.sql" />
+    <Build Include="Stored Procedures\usp_Reservation_Update.sql" />
+    <Build Include="Stored Procedures\usp_Reservation_SoftDelete.sql" />
+    <Build Include="Stored Procedures\usp_Reservation_Restore.sql" />
+    <Build Include="Stored Procedures\usp_Reservation_GetAll.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\SeedEmployees.sql" />
