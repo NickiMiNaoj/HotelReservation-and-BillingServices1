@@ -67,8 +67,18 @@
     <Build Include="Stored Procedures\usp_Employee_GetAll.sql" />
     <Build Include="Stored Procedures\usp_Employee_Update.sql" />
     <Build Include="Stored Procedures\usp_Employee_Deactivate.sql" />
+    <Build Include="Tables\tblRooms.sql" />
+    <Build Include="Stored Procedures\usp_Room_Insert.sql" />
+    <Build Include="Stored Procedures\usp_Room_Update.sql" />
+    <Build Include="Stored Procedures\usp_Room_Delete.sql" />
+    <Build Include="Stored Procedures\usp_Room_GetAll.sql" />
+    <Build Include="Stored Procedures\usp_Room_GetGrid.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Scripts\tblEmployees.sql" />
+    <None Include="Scripts\SeedEmployees.sql" />
+    <None Include="Scripts\SeedRooms.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\Script.PostDeployment.sql" />
   </ItemGroup>
 </Project>
