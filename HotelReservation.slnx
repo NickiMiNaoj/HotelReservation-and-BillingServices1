@@ -4,10 +4,6 @@
     <Build />
     <Deploy />
   </Project>
-  <Project Path="DB/DB.sqlproj" Id="e1c4f473-4a69-4a6f-ad7e-8b46e5ed539c">
-    <Build />
-    <Deploy />
-  </Project>
   <Project Path="Model/Model.csproj" />
   <Project Path="UI/UI.csproj" />
 </Solution>
