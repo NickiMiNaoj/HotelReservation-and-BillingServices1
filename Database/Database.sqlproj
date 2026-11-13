@@ -80,6 +80,11 @@
     <Build Include="Stored Procedures\usp_Reservation_SoftDelete.sql" />
     <Build Include="Stored Procedures\usp_Reservation_Restore.sql" />
     <Build Include="Stored Procedures\usp_Reservation_GetAll.sql" />
+    <Build Include="Tables\tblInvoices.sql" />
+    <Build Include="Tables\tblPayments.sql" />
+    <Build Include="Stored Procedures\usp_Billing_GetByReservation.sql" />
+    <Build Include="Stored Procedures\usp_Billing_ProcessPayment.sql" />
+    <Build Include="Stored Procedures\usp_Payment_GetHistory.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\SeedEmployees.sql" />
