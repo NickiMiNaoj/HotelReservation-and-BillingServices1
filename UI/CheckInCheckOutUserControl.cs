@@ -15,6 +15,8 @@ namespace UI
         {
             CheckInUserControl checkInUserControl = new CheckInUserControl();
             LoadUserControl(checkInUserControl);
+            btnCheckIn.Enabled = false;
+            btnCheckOut.Enabled = true;
         }
         private void LoadUserControl(UserControl uc)
         {

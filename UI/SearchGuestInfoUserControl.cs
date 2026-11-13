@@ -8,16 +8,11 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class frontdeskdashboardForm : Form
+    public partial class SearchGuestInfoUserControl : UserControl
     {
-        public frontdeskdashboardForm()
+        public SearchGuestInfoUserControl()
         {
             InitializeComponent();
-        }
-
-        private void frontdeskdashboardForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
