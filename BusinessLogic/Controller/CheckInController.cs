@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Data;
 
 namespace HotelReservation.BusinessLogic
@@ -12,21 +13,33 @@ namespace HotelReservation.BusinessLogic
             repository = new CheckInRepository();
         }
 
+        // SEARCH RESERVATIONS
         public DataTable SearchReservations(string searchTerm)
         {
             return repository.GetPendingReservations(searchTerm);
         }
 
-        public bool ProcessCheckIn(int reservationId, int roomId, string keyCardNumber, string remarks)
+        // PROCESS CHECK-IN
+        public bool ProcessCheckIn(
+            int reservationId,
+            int roomId,
+            string keyCardNumber,
+            string remarks)
         {
             try
             {
-                repository.ExecuteCheckIn(reservationId, roomId, keyCardNumber, remarks);
+                repository.ExecuteCheckIn(
+                    reservationId,
+                    roomId,
+                    keyCardNumber,
+                    remarks);
+
                 return true;
             }
             catch (Exception ex)
             {
-                throw new Exception("Check-in controller failed: " + ex.Message);
+                throw new Exception(
+                    "Check-in controller failed: " + ex.Message);
             }
         }
     }

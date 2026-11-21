@@ -245,6 +245,7 @@
             btnConfirmCheckIn.TabIndex = 7;
             btnConfirmCheckIn.Text = "Confirm Check-In";
             btnConfirmCheckIn.UseVisualStyleBackColor = false;
+            btnConfirmCheckIn.Click += btnConfirmCheckIn_Click;
             // 
             // CheckInUserControl
             // 
