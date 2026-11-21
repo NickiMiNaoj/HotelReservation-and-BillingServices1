@@ -31,14 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LandingPageForm));
             btnLogout = new Button();
             panel1 = new Panel();
-            button12 = new Button();
             pictureBox1 = new PictureBox();
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
-            button11 = new Button();
             btnUserRole = new Button();
-            button9 = new Button();
             btnCheckInOut = new Button();
             btnBillingPayment = new Button();
             button6 = new Button();
@@ -68,7 +65,6 @@
             // 
             panel1.BackColor = SystemColors.GradientActiveCaption;
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(button12);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
@@ -77,16 +73,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1923, 104);
             panel1.TabIndex = 1;
-            // 
-            // button12
-            // 
-            button12.Font = new Font("Calisto MT", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button12.Location = new Point(1525, 26);
-            button12.Name = "button12";
-            button12.Size = new Size(160, 41);
-            button12.TabIndex = 12;
-            button12.Text = "Settings";
-            button12.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
@@ -124,9 +110,7 @@
             panel2.BackColor = SystemColors.GradientActiveCaption;
             panel2.BackgroundImageLayout = ImageLayout.Stretch;
             panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(button11);
             panel2.Controls.Add(btnUserRole);
-            panel2.Controls.Add(button9);
             panel2.Controls.Add(btnCheckInOut);
             panel2.Controls.Add(btnBillingPayment);
             panel2.Controls.Add(button6);
@@ -140,20 +124,10 @@
             panel2.Size = new Size(468, 975);
             panel2.TabIndex = 2;
             // 
-            // button11
-            // 
-            button11.Font = new Font("Calisto MT", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button11.Location = new Point(56, 887);
-            button11.Name = "button11";
-            button11.Size = new Size(306, 66);
-            button11.TabIndex = 11;
-            button11.Text = "Reports";
-            button11.UseVisualStyleBackColor = true;
-            // 
             // btnUserRole
             // 
             btnUserRole.Font = new Font("Calisto MT", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnUserRole.Location = new Point(56, 796);
+            btnUserRole.Location = new Point(56, 897);
             btnUserRole.Name = "btnUserRole";
             btnUserRole.Size = new Size(306, 66);
             btnUserRole.TabIndex = 10;
@@ -161,20 +135,10 @@
             btnUserRole.UseVisualStyleBackColor = true;
             btnUserRole.Click += btnUserRole_Click;
             // 
-            // button9
-            // 
-            button9.Font = new Font("Calisto MT", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button9.Location = new Point(56, 707);
-            button9.Name = "button9";
-            button9.Size = new Size(306, 66);
-            button9.TabIndex = 9;
-            button9.Text = "Services (Add-ons)";
-            button9.UseVisualStyleBackColor = true;
-            // 
             // btnCheckInOut
             // 
             btnCheckInOut.Font = new Font("Calisto MT", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCheckInOut.Location = new Point(56, 617);
+            btnCheckInOut.Location = new Point(56, 789);
             btnCheckInOut.Name = "btnCheckInOut";
             btnCheckInOut.Size = new Size(306, 66);
             btnCheckInOut.TabIndex = 8;
@@ -185,7 +149,7 @@
             // btnBillingPayment
             // 
             btnBillingPayment.Font = new Font("Calisto MT", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnBillingPayment.Location = new Point(56, 530);
+            btnBillingPayment.Location = new Point(56, 680);
             btnBillingPayment.Name = "btnBillingPayment";
             btnBillingPayment.Size = new Size(306, 66);
             btnBillingPayment.TabIndex = 7;
@@ -196,28 +160,29 @@
             // button6
             // 
             button6.Font = new Font("Calisto MT", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button6.Location = new Point(56, 441);
+            button6.Location = new Point(56, 571);
             button6.Name = "button6";
             button6.Size = new Size(306, 66);
             button6.TabIndex = 6;
             button6.Text = "Guests";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // btnRoomReservation
             // 
             btnRoomReservation.Font = new Font("Calisto MT", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRoomReservation.Location = new Point(56, 355);
+            btnRoomReservation.Location = new Point(56, 460);
             btnRoomReservation.Name = "btnRoomReservation";
             btnRoomReservation.Size = new Size(306, 66);
             btnRoomReservation.TabIndex = 5;
-            btnRoomReservation.Text = "Raservation";
+            btnRoomReservation.Text = "Reservation";
             btnRoomReservation.UseVisualStyleBackColor = true;
             btnRoomReservation.Click += btnRoomReservation_Click;
             // 
             // btnRooms
             // 
             btnRooms.Font = new Font("Calisto MT", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRooms.Location = new Point(56, 101);
+            btnRooms.Location = new Point(56, 132);
             btnRooms.Name = "btnRooms";
             btnRooms.Size = new Size(306, 66);
             btnRooms.TabIndex = 4;
@@ -228,7 +193,7 @@
             // button2
             // 
             button2.Font = new Font("Calisto MT", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(56, 271);
+            button2.Location = new Point(56, 346);
             button2.Name = "button2";
             button2.Size = new Size(306, 66);
             button2.TabIndex = 3;
@@ -239,7 +204,7 @@
             // button3
             // 
             button3.Font = new Font("Calisto MT", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.Location = new Point(56, 184);
+            button3.Location = new Point(56, 242);
             button3.Name = "button3";
             button3.Size = new Size(306, 66);
             button3.TabIndex = 2;
@@ -300,10 +265,7 @@
         private Button btnBillingPayment;
         private Button button6;
         private Button btnRoomReservation;
-        private Button button11;
         private Button btnUserRole;
-        private Button button9;
-        private Button button12;
         private PictureBox pictureBox1;
         private Panel pnlHandlingUC;
     }

@@ -75,5 +75,11 @@ namespace UI
             UserRolesManagementUserControl userRolesManagementUserControl = new UserRolesManagementUserControl();
             LoadUserControl(userRolesManagementUserControl);
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            GuestMaintenanceUserControl guestMaintenanceUserControl = new GuestMaintenanceUserControl();
+            LoadUserControl(guestMaintenanceUserControl);
+        }
     }
 }
